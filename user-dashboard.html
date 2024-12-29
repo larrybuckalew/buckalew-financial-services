@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dashboard | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/user-dashboard.html">Dashboard</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="user-dashboard-container">
+        <section class="dashboard-header">
+            <div class="user-profile">
+                <img src="/images/default-avatar.png" alt="User Avatar" class="user-avatar">
+                <div class="user-info">
+                    <h1 id="user-name">Welcome, [User Name]</h1>
+                    <p id="user-status">Financial Health: Good</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="financial-overview">
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>Net Worth</h3>
+                    <p id="net-worth" class="overview-value">$0</p>
+                    <div class="trend-indicator positive">+3.2% this month</div>
+                </div>
+                <div class="overview-card">
+                    <h3>Monthly Savings</h3>
+                    <p id="monthly-savings" class="overview-value">$0</p>
+                    <div class="trend-indicator">Tracking progress</div>
+                </div>
+                <div class="overview-card">
+                    <h3>Investment Portfolio</h3>
+                    <p id="portfolio-value" class="overview-value">$0</p>
+                    <div class="trend-indicator positive">+5.6% this year</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="financial-goals">
+            <h2>Financial Goals</h2>
+            <div id="goals-container" class="goals-grid">
+                <div class="goal-card">
+                    <h3>Emergency Fund</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 65%;"></div>
+                    </div>
+                    <p>$6,500 / $10,000</p>
+                    <button class="btn">Update Goal</button>
+                </div>
+                <div class="goal-card">
+                    <h3>Retirement Savings</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 40%;"></div>
+                    </div>
+                    <p>$50,000 / $125,000</p>
+                    <button class="btn">Update Goal</button>
+                </div>
+                <div class="goal-card add-goal">
+                    <button id="add-new-goal" class="btn">+ Add New Goal</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="recent-activity">
+            <h2>Recent Financial Activity</h2>
+            <div id="activity-feed" class="activity-list">
+                <div class="activity-item">
+                    <span class="activity-icon">💸</span>
+                    <div class="activity-details">
+                        <p>Automated monthly investment contribution</p>
+                        <small>2 days ago</small>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-icon">📈</span>
+                    <div class="activity-details">
+                        <p>Portfolio rebalancing completed</p>
+                        <small>1 week ago</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="personalized-insights">
+            <h2>Personalized Insights</h2>
+            <div class="insights-container">
+                <div class="insight-card">
+                    <h3>Investment Recommendation</h3>
+                    <p>Consider diversifying your portfolio with emerging market ETFs</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="insight-card">
+                    <h3>Savings Opportunity</h3>
+                    <p>You could save $200/month by refinancing your current loans</p>
+                    <a href="#" class="btn">Explore Options</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="user-dashboard.js"></script>
+</body>
+</html>
