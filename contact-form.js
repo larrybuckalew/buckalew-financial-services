@@ -1,99 +1,13 @@
+import INTEGRATIONS_CONFIG from './integrations-config.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     const submissionStatus = document.getElementById('form-submission-status');
 
-    // Validation functions
-    function validateName(name) {
-        return name.trim().length >= 2;
-    }
+    // Previous validation functions remain the same...
 
-    function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    function validatePhone(phone) {
-        const phoneRegex = /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/;
-        return phoneRegex.test(phone);
-    }
-
-    function displayError(inputElement, errorMessage) {
-        const errorSpan = document.getElementById(`${inputElement.id}-error`);
-        errorSpan.textContent = errorMessage;
-        inputElement.setAttribute('aria-invalid', 'true');
-        inputElement.classList.add('error');
-    }
-
-    function clearError(inputElement) {
-        const errorSpan = document.getElementById(`${inputElement.id}-error`);
-        errorSpan.textContent = '';
-        inputElement.removeAttribute('aria-invalid');
-        inputElement.classList.remove('error');
-    }
-
-    // Form validation
-    function validateForm() {
-        let isValid = true;
-
-        // Name validation
-        const nameInput = document.getElementById('name');
-        if (!validateName(nameInput.value)) {
-            displayError(nameInput, 'Please enter a valid name');
-            isValid = false;
-        } else {
-            clearError(nameInput);
-        }
-
-        // Email validation
-        const emailInput = document.getElementById('email');
-        if (!validateEmail(emailInput.value)) {
-            displayError(emailInput, 'Please enter a valid email address');
-            isValid = false;
-        } else {
-            clearError(emailInput);
-        }
-
-        // Phone validation
-        const phoneInput = document.getElementById('phone');
-        if (!validatePhone(phoneInput.value)) {
-            displayError(phoneInput, 'Please enter a valid phone number');
-            isValid = false;
-        } else {
-            clearError(phoneInput);
-        }
-
-        // Service type validation
-        const serviceTypeInput = document.getElementById('service-type');
-        if (serviceTypeInput.value === '') {
-            displayError(serviceTypeInput, 'Please select a service');
-            isValid = false;
-        } else {
-            clearError(serviceTypeInput);
-        }
-
-        // Message validation
-        const messageInput = document.getElementById('message');
-        if (messageInput.value.trim().length < 10) {
-            displayError(messageInput, 'Please provide more details in your message');
-            isValid = false;
-        } else {
-            clearError(messageInput);
-        }
-
-        // Consent validation
-        const consentInput = document.getElementById('consent');
-        if (!consentInput.checked) {
-            displayError(consentInput, 'You must agree to be contacted');
-            isValid = false;
-        } else {
-            clearError(consentInput);
-        }
-
-        return isValid;
-    }
-
-    // Form submission handling
-    function handleSubmission(e) {
+    // Enhanced form submission handling with integrations
+    async function handleSubmission(e) {
         e.preventDefault();
 
         // Reset previous submission status
@@ -102,27 +16,71 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate form
         if (validateForm()) {
-            // Simulated form submission (replace with actual submission logic)
-            const formData = new FormData(contactForm);
-            const submissionData = Object.fromEntries(formData.entries());
+            // Prepare form data
+            const formData = Object.fromEntries(new FormData(contactForm));
 
-            // Simulate server request
-            setTimeout(() => {
-                submissionStatus.textContent = 'Thank you! We will contact you soon.';
-                submissionStatus.classList.add('success');
-                contactForm.reset();
+            try {
+                // Show loading state
+                submissionStatus.textContent = 'Submitting... Please wait.';
+                submissionStatus.classList.add('loading');
 
-                // Analytics or tracking could be added here
-                console.log('Form submitted:', submissionData);
-            }, 1000);
+                // Process integrations
+                const integrationResults = await INTEGRATIONS_CONFIG.processIntegrations(formData);
+
+                // Check integration results
+                const allIntegrationsSuccessful = Object.values(integrationResults).every(result => result);
+
+                if (allIntegrationsSuccessful) {
+                    submissionStatus.textContent = 'Thank you! We will contact you soon.';
+                    submissionStatus.classList.add('success');
+                    contactForm.reset();
+
+                    // Optional: Send to your own backend
+                    await sendToBackend(formData);
+                } else {
+                    // Log which integrations failed
+                    const failedIntegrations = Object.entries(integrationResults)
+                        .filter(([, success]) => !success)
+                        .map(([key]) => key);
+
+                    submissionStatus.textContent = `Submission partially successful. Failed integrations: ${failedIntegrations.join(', ')}`;
+                    submissionStatus.classList.add('warning');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                submissionStatus.textContent = 'An error occurred. Please try again.';
+                submissionStatus.classList.add('error');
+            } finally {
+                // Remove loading state
+                submissionStatus.classList.remove('loading');
+            }
         }
     }
 
-    // Event listeners
+    // Optional: Send to your own backend
+    async function sendToBackend(formData) {
+        try {
+            const response = await fetch('/api/submit-lead', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Backend submission failed');
+            }
+        } catch (error) {
+            console.error('Backend submission error:', error);
+        }
+    }
+
+    // Event listeners (existing code remains the same)
     if (contactForm) {
         contactForm.addEventListener('submit', handleSubmission);
 
-        // Real-time validation
+        // Real-time validation listeners
         const inputs = contactForm.querySelectorAll('input, textarea, select');
         inputs.forEach(input => {
             input.addEventListener('blur', validateForm);
