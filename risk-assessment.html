@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Risk Assessment | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/risk-assessment.html">Risk Assessment</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="risk-assessment-container">
+        <section class="risk-assessment-hero">
+            <h1>Personalized Financial Risk Profile</h1>
+            <p>Understand your financial risk tolerance and investment potential</p>
+        </section>
+
+        <section class="risk-assessment-tool">
+            <form id="risk-assessment-form">
+                <div class="assessment-section">
+                    <h2>Personal Financial Information</h2>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="income">Annual Income</label>
+                        <input type="number" id="income" required>
+                    </div>
+                </div>
+
+                <div class="assessment-section">
+                    <h2>Investment Goals</h2>
+                    <div class="form-group">
+                        <label>Primary Investment Goal</label>
+                        <select id="investment-goal" required>
+                            <option value="">Select Goal</option>
+                            <option value="retirement">Retirement Planning</option>
+                            <option value="wealth-growth">Wealth Accumulation</option>
+                            <option value="income">Passive Income</option>
+                            <option value="education">Education Funding</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Investment Horizon</label>
+                        <select id="investment-horizon" required>
+                            <option value="">Select Time Frame</option>
+                            <option value="short">0-5 Years</option>
+                            <option value="medium">5-10 Years</option>
+                            <option value="long">10+ Years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="assessment-section">
+                    <h2>Risk Tolerance Questions</h2>
+                    <div class="risk-question">
+                        <p>How would you react to a 20% drop in your investment portfolio?</p>
+                        <div class="risk-options">
+                            <input type="radio" name="portfolio-drop" value="conservative" id="drop-conservative" required>
+                            <label for="drop-conservative">Sell immediately</label>
+
+                            <input type="radio" name="portfolio-drop" value="moderate" id="drop-moderate">
+                            <label for="drop-moderate">Monitor and wait</label>
+
+                            <input type="radio" name="portfolio-drop" value="aggressive" id="drop-aggressive">
+                            <label for="drop-aggressive">Consider buying more</label>
+                        </div>
+                    </div>
+
+                    <div class="risk-question">
+                        <p>What's your primary concern with investments?</p>
+                        <div class="risk-options">
+                            <input type="radio" name="investment-concern" value="preservation" id="concern-preservation" required>
+                            <label for="concern-preservation">Preserving capital</label>
+
+                            <input type="radio" name="investment-concern" value="balance" id="concern-balance">
+                            <label for="concern-balance">Balanced growth</label>
+
+                            <input type="radio" name="investment-concern" value="growth" id="concern-growth">
+                            <label for="concern-growth">Maximum growth</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Generate Risk Profile</button>
+            </form>
+
+            <div id="risk-assessment-result" class="risk-result"></div>
+        </section>
+
+        <section class="risk-education">
+            <h2>Understanding Your Risk Profile</h2>
+            <div class="risk-profiles">
+                <div class="risk-profile-card">
+                    <h3>Conservative Profile</h3>
+                    <p>Prioritizes capital preservation with lower-risk investments</p>
+                </div>
+                <div class="risk-profile-card">
+                    <h3>Moderate Profile</h3>
+                    <p>Seeks balanced growth with measured risk exposure</p>
+                </div>
+                <div class="risk-profile-card">
+                    <h3>Aggressive Profile</h3>
+                    <p>Targets high growth with higher risk tolerance</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="risk-assessment.js"></script>
+</body>
+</html>
