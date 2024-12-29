@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annuities | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/annuities-landing.html">Annuities</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero annuities-hero">
+            <div class="hero-content">
+                <h1>Secure Your Retirement Income</h1>
+                <p>Guaranteed Financial Stability Through Annuities</p>
+                <a href="/contact.html" class="btn">Explore Options</a>
+            </div>
+        </section>
+
+        <section class="product-details">
+            <h2>Annuity Solutions</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>Fixed Annuities</h3>
+                    <p>Predictable, guaranteed returns with minimal risk. Ideal for conservative investors seeking stable income.</p>
+                    <ul>
+                        <li>Guaranteed interest rates</li>
+                        <li>Predictable income stream</li>
+                        <li>Tax-deferred growth</li>
+                    </ul>
+                    <a href="/contact.html" class="btn">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <h3>Variable Annuities</h3>
+                    <p>Investment-based annuities with potential for higher returns linked to market performance.</p>
+                    <ul>
+                        <li>Market-linked potential</li>
+                        <li>Flexible investment options</li>
+                        <li>Death benefit protections</li>
+                    </ul>
+                    <a href="/contact.html" class="btn">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <h3>Indexed Annuities</h3>
+                    <p>Combines features of fixed and variable annuities with returns tied to a market index.</p>
+                    <ul>
+                        <li>Downside protection</li>
+                        <li>Potential for higher returns</li>
+                        <li>Flexible payout options</li>
+                    </ul>
+                    <a href="/contact.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="annuity-calculator">
+            <h2>Annuity Income Projection</h2>
+            <div class="calculator-container">
+                <form id="annuity-calculator">
+                    <div class="form-group">
+                        <label for="initial-investment">Initial Investment</label>
+                        <input type="number" id="initial-investment" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="annuity-type">Annuity Type</label>
+                        <select id="annuity-type" required>
+                            <option value="fixed">Fixed Annuity</option>
+                            <option value="variable">Variable Annuity</option>
+                            <option value="indexed">Indexed Annuity</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="payout-period">Payout Period (Years)</label>
+                        <input type="number" id="payout-period" required>
+                    </div>
+                    <button type="submit" class="btn">Calculate Potential Income</button>
+                </form>
+                <div id="annuity-result" class="calculator-result"></div>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2>Annuity Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>Understanding Annuities</h3>
+                    <p>Learn the basics of how annuities work and their role in retirement planning.</p>
+                    <a href="/blog/annuities-explained.html" class="btn">Read Guide</a>
+                </div>
+                <div class="education-card">
+                    <h3>Tax Advantages</h3>
+                    <p>Discover the tax benefits and potential savings associated with different annuity types.</p>
+                    <a href="/blog/annuity-tax-benefits.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>Client Experiences</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <blockquote>"Buckalew Financial helped me create a stable income stream for retirement through a carefully selected annuity."</blockquote>
+                    <cite>- Sarah M., Small Business Owner</cite>
+                </div>
+            </div>
+        </section>
+
+        <section class="call-to-action">
+            <h2>Secure Your Financial Future</h2>
+            <p>Schedule a personalized annuity consultation</p>
+            <a href="/contact.html" class="btn">Book Consultation</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="calculators.js"></script>
+</body>
+</html>
