@@ -3,55 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Buckalew Financial Services</title>
+    <title>Financial Education Blog | Buckalew Financial Services</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="/" class="navbar-logo">Buckalew Financial Services</a>
-            <div class="navbar-links">
-                <a href="/">Home</a>
-                <a href="/services.html">Services</a>
-                <a href="/blog/index.html">Blog</a>
-                <a href="/contact.html">Contact</a>
-            </div>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact.html">Contact</a>
         </nav>
     </header>
 
-    <main class="container">
-        <section class="blog-list">
-            <h1>Financial Insights and Advice</h1>
-            
-            <article class="blog-preview">
-                <h2>Understanding Life Insurance: A Comprehensive Guide</h2>
-                <p>Explore the different types of life insurance and how to choose the right coverage for your family's needs.</p>
-                <a href="/blog/life-insurance-guide.html" class="btn">Read More</a>
-                <div class="blog-meta">
-                    <span>Published: January 15, 2024</span>
-                    <span>5 min read</span>
-                </div>
-            </article>
+    <main class="blog-container">
+        <section class="blog-hero">
+            <h1>Financial Insights and Education</h1>
+            <p>Expert advice, market insights, and financial planning strategies</p>
+        </section>
 
-            <article class="blog-preview">
-                <h2>Navigating Medicare: What You Need to Know</h2>
-                <p>A detailed breakdown of Medicare plans, eligibility, and how to make the best choice for your healthcare needs.</p>
-                <a href="/blog/medicare-guide.html" class="btn">Read More</a>
-                <div class="blog-meta">
-                    <span>Published: February 1, 2024</span>
-                    <span>7 min read</span>
+        <section class="blog-categories">
+            <div class="category-grid">
+                <div class="category-card">
+                    <h2>Retirement Planning</h2>
+                    <p>Strategies for a secure retirement</p>
+                    <a href="/blog/retirement" class="btn">View Articles</a>
                 </div>
-            </article>
+                <div class="category-card">
+                    <h2>Investment Strategies</h2>
+                    <p>Insights into smart investing</p>
+                    <a href="/blog/investments" class="btn">View Articles</a>
+                </div>
+                <div class="category-card">
+                    <h2>Insurance Guidance</h2>
+                    <p>Understanding insurance options</p>
+                    <a href="/blog/insurance" class="btn">View Articles</a>
+                </div>
+            </div>
+        </section>
 
-            <article class="blog-preview">
-                <h2>Financial Planning 101: Securing Your Future</h2>
-                <p>Essential tips and strategies for effective financial planning at every stage of life.</p>
-                <a href="/blog/financial-planning-basics.html" class="btn">Read More</a>
-                <div class="blog-meta">
-                    <span>Published: February 15, 2024</span>
-                    <span>6 min read</span>
-                </div>
-            </article>
+        <section class="featured-posts">
+            <h2>Latest Blog Posts</h2>
+            <div class="post-grid">
+                <article class="blog-post">
+                    <h3>5 Retirement Planning Mistakes to Avoid</h3>
+                    <p>Common pitfalls that can derail your retirement goals</p>
+                    <a href="/blog/retirement/5-mistakes" class="btn">Read More</a>
+                </article>
+                <article class="blog-post">
+                    <h3>Understanding Market Volatility</h3>
+                    <p>How to navigate uncertain financial markets</p>
+                    <a href="/blog/investments/market-volatility" class="btn">Read More</a>
+                </article>
+                <article class="blog-post">
+                    <h3>Choosing the Right Life Insurance</h3>
+                    <p>A comprehensive guide to life insurance options</p>
+                    <a href="/blog/insurance/life-insurance-guide" class="btn">Read More</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="newsletter-signup">
+            <h2>Stay Informed</h2>
+            <p>Subscribe to our weekly financial insights newsletter</p>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
         </section>
     </main>
 
