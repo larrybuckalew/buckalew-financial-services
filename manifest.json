@@ -1,0 +1,37 @@
+{
+    "name": "Buckalew Financial Services",
+    "short_name": "Buckalew Finance",
+    "description": "Expert financial and insurance services",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2c3e50",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/images/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshot-desktop.jpg",
+            "sizes": "1280x800",
+            "type": "image/jpeg"
+        },
+        {
+            "src": "/images/screenshot-mobile.jpg",
+            "sizes": "750x1334",
+            "type": "image/jpeg"
+        }
+    ],
+    "categories": ["finance", "insurance", "financial services"],
+    "related_applications": [],
+    "prefer_related_applications": false
+}
