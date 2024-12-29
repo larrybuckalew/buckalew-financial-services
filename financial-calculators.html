@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/financial-calculators.html">Calculators</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero calculators-hero">
+            <div class="hero-content">
+                <h1>Financial Planning Tools</h1>
+                <p>Interactive Calculators to Guide Your Financial Decisions</p>
+            </div>
+        </section>
+
+        <section class="calculators-section">
+            <div class="calculators-grid">
+                <div class="calculator-card">
+                    <h2>Retirement Savings Calculator</h2>
+                    <form id="retirement-calculator">
+                        <div class="form-group">
+                            <label for="current-age">Current Age</label>
+                            <input type="number" id="current-age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="retirement-age">Desired Retirement Age</label>
+                            <input type="number" id="retirement-age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="current-savings">Current Savings</label>
+                            <input type="number" id="current-savings" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly-contribution">Monthly Contribution</label>
+                            <input type="number" id="monthly-contribution" required>
+                        </div>
+                        <button type="submit" class="btn">Calculate Retirement Savings</button>
+                    </form>
+                    <div id="retirement-result" class="calculator-result"></div>
+                </div>
+
+                <div class="calculator-card">
+                    <h2>Mortgage Affordability Calculator</h2>
+                    <form id="mortgage-calculator">
+                        <div class="form-group">
+                            <label for="annual-income">Annual Income</label>
+                            <input type="number" id="annual-income" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly-debt">Monthly Debt Payments</label>
+                            <input type="number" id="monthly-debt" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="down-payment">Down Payment</label>
+                            <input type="number" id="down-payment" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest-rate">Interest Rate (%)</label>
+                            <input type="number" id="interest-rate" step="0.1" required>
+                        </div>
+                        <button type="submit" class="btn">Calculate Mortgage Affordability</button>
+                    </form>
+                    <div id="mortgage-result" class="calculator-result"></div>
+                </div>
+
+                <div class="calculator-card">
+                    <h2>Life Insurance Needs Calculator</h2>
+                    <form id="life-insurance-calculator">
+                        <div class="form-group">
+                            <label for="annual-income">Annual Income</label>
+                            <input type="number" id="annual-income" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="existing-debts">Existing Debts</label>
+                            <input type="number" id="existing-debts" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dependents">Number of Dependents</label>
+                            <input type="number" id="dependents" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="years-of-replacement">Years of Income Replacement</label>
+                            <input type="number" id="years-of-replacement" required>
+                        </div>
+                        <button type="submit" class="btn">Calculate Life Insurance Needs</button>
+                    </form>
+                    <div id="life-insurance-result" class="calculator-result"></div>
+                </div>
+
+                <div class="calculator-card">
+                    <h2>Investment Growth Calculator</h2>
+                    <form id="investment-calculator">
+                        <div class="form-group">
+                            <label for="initial-investment">Initial Investment</label>
+                            <input type="number" id="initial-investment" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="annual-contribution">Annual Contribution</label>
+                            <input type="number" id="annual-contribution" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="years-of-growth">Years of Growth</label>
+                            <input type="number" id="years-of-growth" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expected-return">Expected Annual Return (%)</label>
+                            <input type="number" id="expected-return" step="0.1" required>
+                        </div>
+                        <button type="submit" class="btn">Calculate Investment Growth</button>
+                    </form>
+                    <div id="investment-result" class="calculator-result"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator-disclaimer">
+            <h2>Calculator Disclaimer</h2>
+            <p>These calculators provide estimated results based on the information you input. They are intended for informational purposes only and do not constitute financial advice. Actual results may vary. For personalized financial guidance, please schedule a consultation with our financial experts.</p>
+            <a href="/contact.html" class="btn">Schedule Consultation</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="calculators.js"></script>
+</body>
+</html>
