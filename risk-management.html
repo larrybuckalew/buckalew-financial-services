@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management Analyzer | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/risk-management.html">Risk Management</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="risk-management-container">
+        <section class="risk-hero">
+            <h1>Comprehensive Risk Management</h1>
+            <p>Protect what matters most with personalized insurance analysis</p>
+        </section>
+
+        <section class="risk-assessment">
+            <h2>Personal Risk Assessment</h2>
+            <div class="risk-assessment-grid">
+                <div class="risk-input-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" id="age" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Marital Status</label>
+                        <select id="marital-status">
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="divorced">Divorced</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Income</label>
+                        <input type="number" id="annual-income" required>
+                    </div>
+                </div>
+
+                <div class="risk-input-section">
+                    <h3>Current Insurance Coverage</h3>
+                    <div class="insurance-coverage-inputs">
+                        <div class="form-group">
+                            <label>Life Insurance Coverage</label>
+                            <input type="number" id="life-insurance-coverage" placeholder="Current coverage amount">
+                        </div>
+                        <div class="form-group">
+                            <label>Health Insurance Type</label>
+                            <select id="health-insurance-type">
+                                <option value="employer">Employer-Provided</option>
+                                <option value="individual">Individual Plan</option>
+                                <option value="none">No Coverage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Disability Insurance</label>
+                            <select id="disability-insurance">
+                                <option value="none">No Coverage</option>
+                                <option value="short-term">Short-Term</option>
+                                <option value="long-term">Long-Term</option>
+                                <option value="both">Both</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="risk-input-section">
+                    <h3>Financial Obligations</h3>
+                    <div class="form-group">
+                        <label>Mortgage/Rent</label>
+                        <input type="number" id="monthly-housing" placeholder="Monthly housing cost">
+                    </div>
+                    <div class="form-group">
+                        <label>Dependents</label>
+                        <input type="number" id="dependents" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Outstanding Debts</label>
+                        <input type="number" id="total-debts" placeholder="Total debt amount">
+                    </div>
+                </div>
+            </div>
+
+            <button id="analyze-risk" class="btn">Analyze Risk Profile</button>
+        </section>
+
+        <section class="risk-analysis-results">
+            <h2>Risk Analysis Results</h2>
+            <div class="results-grid">
+                <div class="risk-result-card" id="risk-score-card">
+                    <h3>Overall Risk Score</h3>
+                    <div id="risk-score-display"></div>
+                </div>
+                <div class="risk-result-card" id="insurance-recommendations">
+                    <h3>Insurance Recommendations</h3>
+                    <div id="recommendation-details"></div>
+                </div>
+                <div class="risk-result-card" id="coverage-gap-analysis">
+                    <h3>Coverage Gap Analysis</h3>
+                    <canvas id="coverage-gap-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="risk-education">
+            <h2>Risk Management Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>Insurance Basics Guide</h3>
+                    <p>Comprehensive guide to understanding insurance types</p>
+                    <a href="/resources/insurance-guide.html" class="btn">Download Guide</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Risk Mitigation Strategies</h3>
+                    <p>Expert tips for minimizing financial risks</p>
+                    <a href="/resources/risk-strategies.html" class="btn">View Strategies</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="consultation-cta">
+            <h2>Personalized Risk Assessment</h2>
+            <p>Get a comprehensive review of your risk management strategy</p>
+            <a href="/contact.html" class="btn">Schedule Consultation</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="risk-management.js"></script>
+</body>
+</html>
