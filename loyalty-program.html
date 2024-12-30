@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Loyalty Program | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/loyalty-program.html">Loyalty Program</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="loyalty-program-container">
+        <section class="loyalty-hero">
+            <h1>Buckalew Rewards Program</h1>
+            <p>Earn rewards for your financial journey</p>
+        </section>
+
+        <section class="member-profile">
+            <div class="profile-header">
+                <h2 id="member-name">Welcome, Valued Member</h2>
+                <div id="loyalty-tier" class="loyalty-tier"></div>
+            </div>
+
+            <div class="loyalty-metrics">
+                <div class="metric-card">
+                    <h3>Loyalty Points</h3>
+                    <div id="loyalty-points" class="metric-value">0</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Rewards Status</h3>
+                    <div id="rewards-status" class="metric-value">Pending</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Next Tier Progress</h3>
+                    <div class="progress-bar">
+                        <div id="tier-progress" class="progress"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rewards-catalog">
+            <h2>Rewards Catalog</h2>
+            <div id="rewards-grid" class="rewards-grid"></div>
+        </section>
+
+        <section class="point-earning-opportunities">
+            <h2>Earn Loyalty Points</h2>
+            <div class="earning-grid">
+                <div class="earning-card">
+                    <h3>Financial Services</h3>
+                    <ul id="service-point-list"></ul>
+                </div>
+                <div class="earning-card">
+                    <h3>Referral Program</h3>
+                    <div id="referral-details">
+                        <p>Earn points by referring friends and family</p>
+                        <button id="generate-referral-code" class="btn">Generate Referral Code</button>
+                    </div>
+                </div>
+                <div class="earning-card">
+                    <h3>Bonus Point Challenges</h3>
+                    <div id="bonus-challenges"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="loyalty-analytics">
+            <h2>Your Loyalty Journey</h2>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <h3>Points Earned Over Time</h3>
+                    <canvas id="points-history-chart"></canvas>
+                </div>
+                <div class="analytics-card">
+                    <h3>Reward Redemption History</h3>
+                    <div id="redemption-history"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tier-benefits">
+            <h2>Loyalty Tier Benefits</h2>
+            <div id="tier-benefits-grid" class="tier-benefits-grid"></div>
+        </section>
+
+        <section class="community-engagement">
+            <h2>Community Rewards</h2>
+            <div class="community-grid">
+                <div class="community-card">
+                    <h3>Financial Education Challenges</h3>
+                    <div id="education-challenges"></div>
+                </div>
+                <div class="community-card">
+                    <h3>Charitable Giving</h3>
+                    <div id="charity-options"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="loyalty-program.js"></script>
+</body>
+</html>
