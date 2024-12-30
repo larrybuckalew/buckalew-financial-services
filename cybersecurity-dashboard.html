@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Dashboard | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/cybersecurity-dashboard.html">Cybersecurity</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="cybersecurity-container">
+        <section class="security-hero">
+            <h1>Digital Protection & Security</h1>
+            <p>Comprehensive security monitoring for your financial assets</p>
+        </section>
+
+        <section class="security-overview">
+            <div class="security-status-grid">
+                <div class="security-card">
+                    <h3>Overall Security Status</h3>
+                    <div id="security-status" class="status-indicator"></div>
+                    <div id="security-details"></div>
+                </div>
+
+                <div class="security-card">
+                    <h3>Account Protection</h3>
+                    <div id="account-protection-status"></div>
+                </div>
+
+                <div class="security-card">
+                    <h3>Recent Security Events</h3>
+                    <div id="security-events-log"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="security-tools">
+            <h2>Security Tools & Actions</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Two-Factor Authentication</h3>
+                    <div id="2fa-status"></div>
+                    <button id="configure-2fa" class="btn">Configure 2FA</button>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Device Management</h3>
+                    <div id="connected-devices"></div>
+                    <button id="manage-devices" class="btn">Manage Devices</button>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Password Management</h3>
+                    <div id="password-strength"></div>
+                    <button id="password-reset" class="btn">Reset Password</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="security-analytics">
+            <h2>Security Analytics</h2>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <h3>Threat Detection</h3>
+                    <canvas id="threat-detection-chart"></canvas>
+                </div>
+                <div class="analytics-card">
+                    <h3>Access Patterns</h3>
+                    <canvas id="access-patterns-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="security-education">
+            <h2>Security Awareness</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>Current Phishing Threats</h3>
+                    <div id="phishing-alerts"></div>
+                </div>
+                <div class="education-card">
+                    <h3>Latest Security Tips</h3>
+                    <div id="security-tips"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="incident-response">
+            <h2>Incident Response</h2>
+            <div class="incident-grid">
+                <div class="incident-card">
+                    <h3>Suspicious Activity Detected</h3>
+                    <div id="suspicious-activity"></div>
+                </div>
+                <div class="incident-card">
+                    <h3>Quick Action Center</h3>
+                    <button id="lock-account" class="btn emergency">Lock Account</button>
+                    <button id="report-incident" class="btn warning">Report Incident</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cybersecurity-dashboard.js"></script>
+</body>
+</html>
