@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Estate Planning | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/digital-estate-planning.html">Digital Estate</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="digital-estate-container">
+        <section class="estate-hero">
+            <h1>Digital Legacy and Estate Planning</h1>
+            <p>Secure and manage your digital assets and personal legacy</p>
+        </section>
+
+        <section class="digital-asset-inventory">
+            <h2>Digital Asset Inventory</h2>
+            <div class="inventory-grid">
+                <div class="inventory-section">
+                    <h3>Financial Accounts</h3>
+                    <div id="financial-accounts-list"></div>
+                    <button id="add-financial-account" class="btn">Add Financial Account</button>
+                </div>
+
+                <div class="inventory-section">
+                    <h3>Digital Accounts</h3>
+                    <div id="digital-accounts-list"></div>
+                    <button id="add-digital-account" class="btn">Add Digital Account</button>
+                </div>
+
+                <div class="inventory-section">
+                    <h3>Important Documents</h3>
+                    <div id="important-documents-list"></div>
+                    <button id="upload-document" class="btn">Upload Document</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="legacy-instructions">
+            <h2>Legacy Management Instructions</h2>
+            <form id="legacy-instructions-form">
+                <div class="form-group">
+                    <label>Primary Executor</label>
+                    <input type="text" id="primary-executor" required>
+                </div>
+                <div class="form-group">
+                    <label>Alternate Executor</label>
+                    <input type="text" id="alternate-executor">
+                </div>
+                <div class="form-group">
+                    <label>Special Instructions</label>
+                    <textarea id="special-instructions"></textarea>
+                </div>
+                <button type="submit" class="btn">Save Legacy Instructions</button>
+            </form>
+        </section>
+
+        <section class="beneficiary-management">
+            <h2>Beneficiary Management</h2>
+            <div id="beneficiaries-list"></div>
+            <button id="add-beneficiary" class="btn">Add Beneficiary</button>
+        </section>
+
+        <section class="digital-vault">
+            <h2>Secure Digital Vault</h2>
+            <div class="vault-features">
+                <div class="vault-feature">
+                    <h3>Encrypted Storage</h3>
+                    <p>Bank-level encryption for all stored assets</p>
+                </div>
+                <div class="vault-feature">
+                    <h3>Access Control</h3>
+                    <p>Granular permissions for executors and beneficiaries</p>
+                </div>
+                <div class="vault-feature">
+                    <h3>Emergency Access</h3>
+                    <p>Predefined protocols for emergency asset access</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="estate-planning-tools">
+            <h2>Estate Planning Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Estate Value Calculator</h3>
+                    <button id="calculate-estate-value" class="btn">Calculate Estate Value</button>
+                </div>
+                <div class="tool-card">
+                    <h3>Inheritance Tax Estimator</h3>
+                    <button id="estimate-tax-liability" class="btn">Estimate Tax Liability</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="legal-compliance">
+            <h2>Legal and Compliance</h2>
+            <div class="compliance-details">
+                <p>Our digital estate planning tools comply with state and federal regulations.</p>
+                <a href="/legal-compliance.html" class="btn">View Compliance Details</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="add-account-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add Account</h2>
+            <form id="add-account-form">
+                <div class="form-group">
+                    <label>Account Type</label>
+                    <select id="account-type" required>
+                        <option value="">Select Account Type</option>
+                        <option value="bank">Bank Account</option>
+                        <option value="investment">Investment Account</option>
+                        <option value="digital">Digital Platform</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Account Name</label>
+                    <input type="text" id="account-name" required>
+                </div>
+                <button type="submit" class="btn">Add Account</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="digital-estate-planning.js"></script>
+</body>
+</html>
