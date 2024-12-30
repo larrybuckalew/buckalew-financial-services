@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Learning Platform | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/investment-learning.html">Investment Learning</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="investment-learning-container">
+        <section class="learning-hero">
+            <h1>Investment Learning Platform</h1>
+            <p>Learn, Simulate, and Grow Your Financial Knowledge</p>
+        </section>
+
+        <section class="learning-modules">
+            <h2>Learning Modules</h2>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>Investing Basics</h3>
+                    <p>Fundamental concepts for new investors</p>
+                    <button class="btn start-module" data-module="basics">Start Module</button>
+                </div>
+                <div class="module-card">
+                    <h3>Stock Market Fundamentals</h3>
+                    <p>Understanding stock trading and markets</p>
+                    <button class="btn start-module" data-module="stocks">Start Module</button>
+                </div>
+                <div class="module-card">
+                    <h3>Portfolio Strategy</h3>
+                    <p>Building and managing investment portfolios</p>
+                    <button class="btn start-module" data-module="portfolio">Start Module</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="investment-simulator">
+            <h2>Investment Simulator</h2>
+            <div class="simulator-container">
+                <div class="simulator-controls">
+                    <div class="form-group">
+                        <label>Initial Investment</label>
+                        <input type="number" id="initial-investment" value="10000">
+                    </div>
+                    <div class="form-group">
+                        <label>Investment Duration (Years)</label>
+                        <input type="number" id="investment-duration" value="5">
+                    </div>
+                    <div class="form-group">
+                        <label>Investment Strategy</label>
+                        <select id="investment-strategy">
+                            <option value="conservative">Conservative</option>
+                            <option value="balanced" selected>Balanced</option>
+                            <option value="aggressive">Aggressive</option>
+                        </select>
+                    </div>
+                    <button id="run-simulation" class="btn">Run Simulation</button>
+                </div>
+
+                <div class="simulation-results">
+                    <canvas id="investment-simulation-chart"></canvas>
+                    <div id="simulation-summary" class="summary"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive-lessons">
+            <h2>Interactive Lessons</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <h3>Risk vs. Reward</h3>
+                    <p>Understanding investment risk and potential returns</p>
+                    <button class="btn start-lesson" data-lesson="risk">Start Lesson</button>
+                </div>
+                <div class="lesson-card">
+                    <h3>Diversification Strategies</h3>
+                    <p>Learn how to spread investment risk</p>
+                    <button class="btn start-lesson" data-lesson="diversification">Start Lesson</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Investment Knowledge Quiz</h2>
+            <div class="quiz-container">
+                <div id="quiz-questions"></div>
+                <button id="submit-quiz" class="btn">Submit Quiz</button>
+                <div id="quiz-results"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="investment-learning.js"></script>
+</body>
+</html>
