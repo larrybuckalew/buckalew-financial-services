@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Management | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <!-- Include TinyMCE for rich text editing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js"></script>
+</head>
+<body class="admin-panel">
+    <nav class="admin-nav">
+        <div class="logo">
+            <img src="/api/placeholder/200/60" alt="Buckalew Financial Services Logo" class="admin-logo">
+        </div>
+        <ul class="nav-items">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="blog-posts.html" class="active">Blog Posts</a></li>
+            <li><a href="media-library.html">Media Library</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <h1>Blog Posts</h1>
+            <button class="btn-primary" id="newPost">New Post</button>
+        </header>
+
+        <div class="blog-management">
+            <div class="filter-bar">
+                <input type="text" placeholder="Search posts..." class="search-input">
+                <select class="filter-select">
+                    <option value="all">All Categories</option>
+                    <option value="medicare">Medicare</option>
+                    <option value="life-insurance">Life Insurance</option>
+                    <option value="retirement">Retirement</option>
+                    <option value="financial-planning">Financial Planning</option>
+                </select>
+                <select class="filter-select">
+                    <option value="all">All Status</option>
+                    <option value="published">Published</option>
+                    <option value="draft">Draft</option>
+                </select>
+            </div>
+
+            <div class="posts-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Author</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="postsTableBody">
+                        <!-- Sample row for visual reference -->
+                        <tr>
+                            <td>Understanding Medicare Part B</td>
+                            <td>Medicare</td>
+                            <td>Admin</td>
+                            <td>2024-01-15</td>
+                            <td><span class="status-published">Published</span></td>
+                            <td>
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- New/Edit Post Modal -->
+        <div id="postModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Create New Post</h2>
+                <form id="postForm" class="post-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="postTitle">Title</label>
+                            <input type="text" id="postTitle" name="title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postCategory">Category</label>
+                            <select id="postCategory" name="category" required>
+                                <option value="medicare">Medicare</option>
+                                <option value="life-insurance">Life Insurance</option>
+                                <option value="retirement">Retirement</option>
+                                <option value="financial-planning">Financial Planning</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postExcerpt">Excerpt</label>
+                        <textarea id="postExcerpt" name="excerpt" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postContent">Content</label>
+                        <textarea id="postContent" name="content"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="featuredImage">Featured Image</label>
+                            <div class="image-upload-container">
+                                <img id="imagePreview" src="/api/placeholder/200/150" alt="Preview">
+                                <input type="file" id="featuredImage" name="featured_image" accept="image/*">
+                                <button type="button" class="btn-secondary" id="selectImage">Select Image</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Post Settings</label>
+                            <div class="post-settings">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="comments_enabled"> Enable Comments
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="featured_post"> Featured Post
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="postStatus">Status</label>
+                            <select id="postStatus" name="status">
+                                <option value="draft">Draft</option>
+                                <option value="published">Published</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="publishDate">Publish Date</label>
+                            <input type="datetime-local" id="publishDate" name="publish_date">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="saveDraft">Save Draft</button>
+                        <button type="submit" class="btn-primary">Publish Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Initialize TinyMCE
+        tinymce.init({
+            selector: '#postContent',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+            height: 500
+        });
+    </script>
+    <script src="blog-management.js"></script>
+</body>
+</html>
