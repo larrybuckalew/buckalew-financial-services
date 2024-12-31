@@ -1,317 +1,162 @@
-/* Brand Colors */
-:root {
-    --primary-green: #85C872;
-    --accent-green: #C2EF7E;
-    --dark-green: #5EA669;
-    --primary-blue: #285A84;
-    --background: #FFFFFF;
+/* Image Styles */
+.full-width-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* Typography */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+.service-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 1rem;
+}
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    background-color: var(--background);
-    color: var(--primary-blue);
-    line-height: 1.6;
-    margin: 0;
+.testimonial-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--primary-green);
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.footer-image {
+    max-width: 200px;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+/* Section Backgrounds */
+.section-background {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.section-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-overlay {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    margin-top: -100px;
+}
+
+/* Hero Section with Image */
+.hero {
+    position: relative;
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    color: var(--primary-blue);
-}
-
-section {
-    padding: 4rem 2rem;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* Header Styles */
-.navbar {
-    background-color: var(--background);
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar-logo {
-    color: var(--primary-blue);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1.5rem;
-}
-
-.navbar-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.navbar-links a {
-    color: var(--primary-blue);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.navbar-links a:hover {
-    color: var(--primary-green);
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
-    padding: 6rem 2rem;
-    text-align: center;
-    color: var(--primary-blue);
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.btn.primary {
-    background-color: var(--primary-blue);
-    color: var(--background);
-}
-
-.btn.primary:hover {
-    background-color: var(--dark-green);
-}
-
-.btn.secondary {
-    background-color: var(--background);
-    color: var(--primary-blue);
-    border: 2px solid var(--primary-blue);
-}
-
-.btn.secondary:hover {
-    background-color: var(--primary-blue);
-    color: var(--background);
-}
-
-/* Card Layouts */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card {
-    background: var(--background);
-    border-radius: 8px;
-    padding: 2rem;
-    transition: transform 0.3s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* Features Section */
-.features-section {
-    background-color: var(--accent-green);
-    padding: 4rem 0;
-}
-
-.feature-card {
-    background: var(--background);
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-/* Timeline */
-.timeline {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.timeline-item {
-    border-left: 3px solid var(--primary-green);
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
+.hero-image {
+    width: 100%;
+    height: 600px;
     position: relative;
 }
 
-.timeline-item:before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: var(--primary-green);
-    border-radius: 50%;
-    position: absolute;
-    left: -7.5px;
-    top: 2rem;
-}
-
-/* Call to Action Sections */
-.cta-section {
-    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
-    color: var(--background);
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.cta-section h2 {
-    color: var(--background);
-}
-
-/* Footer */
-footer {
-    background-color: var(--primary-blue);
-    color: var(--background);
-    padding: 4rem 2rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-section h3 {
-    color: var(--background);
-    margin-top: 0;
-}
-
-.footer-section a {
-    color: var(--accent-green);
-    text-decoration: none;
-}
-
-.footer-section a:hover {
-    color: var(--primary-green);
-}
-
-.copyright {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    .navbar-links {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        margin-top: 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-        margin: 0.5rem 0;
-    }
-
-    section {
-        padding: 2rem 1rem;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
-}
-
-/* Accessibility Features */
-:focus {
-    outline: 3px solid var(--primary-green);
-    outline-offset: 3px;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
-
-/* Form Styles */
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--primary-blue);
-    font-weight: 500;
-}
-
-input, textarea, select {
+.hero-image img {
     width: 100%;
-    padding: 0.75rem;
-    border: 2px solid var(--primary-blue);
-    border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
+    height: 100%;
+    object-fit: cover;
 }
 
-input:focus, textarea:focus, select:focus {
-    border-color: var(--primary-green);
-    outline: none;
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--background);
+    background: rgba(40, 90, 132, 0.8); /* Your primary blue with opacity */
+    padding: 2rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
 }
+
+/* Service Cards with Images */
+.service-card {
+    background: var(--background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Testimonial Cards with Images */
+.testimonial-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--background);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive Images */
+@media (max-width: 768px) {
+    .hero-image {
+        height: 400px;
+    }
+
+    .hero-text {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .service-image {
+        height: 150px;
+    }
+
+    .section-background {
+        height: 300px;
+    }
+
+    .testimonial-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Image Hover Effects */
+.service-card:hover .service-image {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-image:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Add this to your existing CSS */
