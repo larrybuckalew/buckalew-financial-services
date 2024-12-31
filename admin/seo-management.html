@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Management | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body class="admin-panel">
+    <nav class="admin-nav">
+        <div class="logo">
+            <img src="/api/placeholder/200/60" alt="Buckalew Financial Services Logo" class="admin-logo">
+        </div>
+        <ul class="nav-items">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="blog-posts.html">Blog Posts</a></li>
+            <li><a href="media-library.html">Media Library</a></li>
+            <li><a href="seo-management.html" class="active">SEO</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <h1>SEO Management</h1>
+            <button class="btn-primary" id="runSEOAudit">Run Site Audit</button>
+        </header>
+
+        <div class="seo-dashboard">
+            <div class="seo-overview">
+                <div class="seo-score-card">
+                    <h3>Overall SEO Score</h3>
+                    <div class="score-circle">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"
+                                stroke="#eee"
+                                stroke-width="2"
+                                fill="none"/>
+                            <path d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"
+                                stroke="#85C872"
+                                stroke-width="2"
+                                fill="none"
+                                stroke-dasharray="75, 100"/>
+                        </svg>
+                        <span class="score">75</span>
+                    </div>
+                    <p>Last updated: 2024-01-15</p>
+                </div>
+
+                <div class="quick-stats-grid">
+                    <div class="stat-card">
+                        <h4>Pages Indexed</h4>
+                        <span class="stat-number">24</span>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Keywords Ranking</h4>
+                        <span class="stat-number">128</span>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Backlinks</h4>
+                        <span class="stat-number">45</span>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Page Speed Score</h4>
+                        <span class="stat-number">88</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seo-tools-grid">
+                <div class="tool-card">
+                    <h3>Page Optimizer</h3>
+                    <p>Analyze and optimize individual pages</p>
+                    <select id="pageSelect" class="page-select">
+                        <option value="">Select a page...</option>
+                        <option value="home">Home Page</option>
+                        <option value="medicare">Medicare Services</option>
+                        <option value="life-insurance">Life Insurance</option>
+                    </select>
+                    <button class="btn-secondary">Analyze Page</button>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Keyword Tracking</h3>
+                    <div class="keyword-list">
+                        <div class="keyword-item">
+                            <span>Medicare Insurance</span>
+                            <span class="rank">Position: 12</span>
+                        </div>
+                        <div class="keyword-item">
+                            <span>Life Insurance Agent</span>
+                            <span class="rank">Position: 8</span>
+                        </div>
+                    </div>
+                    <button class="btn-secondary">Add Keywords</button>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Content Optimization</h3>
+                    <div class="content-suggestions">
+                        <ul>
+                            <li>Add more content about Medicare Advantage</li>
+                            <li>Update meta descriptions for blog posts</li>
+                            <li>Optimize images with alt text</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Technical SEO</h3>
+                    <div class="technical-checks">
+                        <div class="check-item success">
+                            <span>SSL Certificate</span>
+                            <span class="status">✓</span>
+                        </div>
+                        <div class="check-item success">
+                            <span>Mobile Friendly</span>
+                            <span class="status">✓</span>
+                        </div>
+                        <div class="check-item warning">
+                            <span>XML Sitemap</span>
+                            <span class="status">!</span>
+                        </div>
+                    </div>
+                    <button class="btn-secondary">Run Technical Audit</button>
+                </div>
+            </div>
+
+            <div class="seo-reports">
+                <h3>Recent Reports</h3>
+                <table class="reports-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Score</th>
+                            <th>Changes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-01-15</td>
+                            <td>Full Site Audit</td>
+                            <td>75/100</td>
+                            <td>+5</td>
+                            <td><button class="btn-view">View Report</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SEO Audit Modal -->
+        <div id="seoAuditModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>SEO Audit Results</h2>
+                <div class="audit-results">
+                    <!-- Audit results will be populated here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="seo-management.js"></script>
+</body>
+</html>
