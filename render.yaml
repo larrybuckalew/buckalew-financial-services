@@ -4,13 +4,15 @@ services:
     name: buckalew-financial-frontend
     env: static
     buildCommand: npm install && npm run build
-    staticPublishPath: ./build
+    staticPublishPath: ./.next
+    autoDeploy: true
     domains:
       - app.buckalewfinancial.com
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
-      - key: REACT_APP_API_URL
+      - key: NEXT_PUBLIC_API_URL
         fromService:
           name: buckalew-financial-api
           type: web
@@ -22,15 +24,17 @@ services:
     env: node
     buildCommand: cd server && npm install
     startCommand: node server/server.js
+    autoDeploy: true
     domains:
       - api.buckalewfinancial.com
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 8080
       - key: CORS_ORIGIN
-        value: https://app.buckalewfinancial.com
+        sync: false # Will be set per environment
       - key: DB_HOST
         sync: false
       - key: DB_PORT
@@ -61,7 +65,24 @@ services:
     name: buckalew-financial-db
     env: docker
     dockerfilePath: ./Dockerfile.postgres
+    autoDeploy: true
     disk:
       name: data
       mountPath: /var/lib/postgresql/data
       sizeGB: 10
+
+# Environment-specific configurations
+environments:
+  - name: production
+    envVars:
+      - key: CORS_ORIGIN
+        value: https://app.buckalewfinancial.com
+      - key: NODE_ENV
+        value: production
+
+  - name: staging
+    envVars:
+      - key: CORS_ORIGIN
+        value: https://staging.buckalewfinancial.com
+      - key: NODE_ENV
+        value: staging
