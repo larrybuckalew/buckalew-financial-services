@@ -8,39 +8,59 @@ generator client {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  email     String    @unique
-  name      String
-  documents Document[]
-  meetings  Meeting[]
-  reports   Report[]
+  id           Int        @id @default(autoincrement())
+  email        String     @unique
+  name         String
+  role         String     @default("client")
+  documents    Document[]
+  meetings     Meeting[]
+  messages     Message[]
+  portfolios   Portfolio[]
+  riskProfile  RiskProfile?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
 }
 
-model Document {
-  id        Int      @id @default(autoincrement())
-  name      String
-  url       String
-  type      String
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id])
-  createdAt DateTime @default(now())
-}
-
-model Meeting {
-  id        Int      @id @default(autoincrement())
-  date      DateTime
-  time      String
-  type      String
-  status    String
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id])
-  createdAt DateTime @default(now())
-}
-
-model Report {
+model Portfolio {
   id          Int      @id @default(autoincrement())
-  type        String
   userId      Int
   user        User     @relation(fields: [userId], references: [id])
-  generatedAt DateTime @default(now())
+  balance     Float
+  allocation  Json
+  performance Json
+  goals       Goal[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Goal {
+  id          Int      @id @default(autoincrement())
+  portfolioId Int
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id])
+  name        String
+  target      Float
+  current     Float
+  targetDate  DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  fromId    Int
+  from      User     @relation(fields: [fromId], references: [id])
+  content   String
+  read      Boolean  @default(false)
+  timestamp DateTime @default(now())
+}
+
+model RiskProfile {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+  score     Int
+  profile   String
+  answers   Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
