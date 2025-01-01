@@ -1,0 +1,39 @@
+global:
+  resolve_timeout: 5m
+  slack_api_url: '${SLACK_WEBHOOK_URL}'
+
+route:
+  group_by: ['alertname', 'job']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+  receiver: 'slack-notifications'
+  routes:
+    - match:
+        severity: critical
+      receiver: 'team-pager'
+      repeat_interval: 1h
+
+receivers:
+  - name: 'slack-notifications'
+    slack_configs:
+      - channel: '#alerts'
+        send_resolved: true
+        icon_emoji: ':warning:'
+        title: '{{ .GroupLabels.alertname }}'
+        text: |
+          {{ range .Alerts }}
+          *Alert:* {{ .Annotations.summary }}
+          *Description:* {{ .Annotations.description }}
+          *Severity:* {{ .Labels.severity }}
+          {{ end }}
+
+  - name: 'team-pager'
+    pagerduty_configs:
+      - service_key: '${PAGERDUTY_SERVICE_KEY}'
+        send_resolved: true
+        description: '{{ .GroupLabels.alertname }}'
+        details:
+          severity: '{{ .CommonLabels.severity }}'
+          summary: '{{ .CommonAnnotations.summary }}'
+          description: '{{ .CommonAnnotations.description }}'
