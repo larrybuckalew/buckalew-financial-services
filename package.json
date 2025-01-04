@@ -2,6 +2,9 @@
   "name": "buckalew-financial-services",
   "version": "1.0.0",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "generate-test-data": "ts-node scripts/test-data/cli.ts generate",
     "generate-behavior-data": "ts-node scripts/test-data/cli.ts generate-behavior",
     "cleanup-test-data": "ts-node scripts/test-data/cli.ts cleanup"
@@ -9,6 +12,18 @@
   "dependencies": {
     "@faker-js/faker": "^8.0.0",
     "commander": "^11.0.0",
-    "ora": "^7.0.0"
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ora": "^7.0.0",
+    "recharts": "^2.10.0",
+    "tailwindcss": "^3.3.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "typescript": "^5.0.0"
   }
 }
