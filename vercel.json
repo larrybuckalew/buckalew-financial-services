@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "src/pages/**/*.{js,jsx,ts,tsx}",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
