@@ -1,222 +1,59 @@
-generator client {
-  provider = "prisma-client-js"
-}
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id            String    @id @default(cuid())
-  email         String    @unique
-  passwordHash  String
-  firstName     String?
-  lastName      String?
-  role          UserRole  @default(CLIENT)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  isActive      Boolean   @default(true)
-  mfaEnabled    Boolean   @default(false)
-  mfaSecret     String?
-
-  // Two-factor authentication backup codes
-  backupCodes   String[]
-
-  // Relations
-  profile       Profile?
-  accounts      Account[]
-  portfolios    Portfolio[]
-  documents     Document[]
-  loginHistory  LoginHistory[]
-  auditLogs     AuditLog[]
-
-  @@map("users")
-}
-
-model Profile {
-  id              String    @id @default(cuid())
-  userId          String    @unique
-  phoneNumber     String?
-  dateOfBirth     DateTime?
-  address         String?
-  city            String?
-  state           String?
-  zipCode         String?
-  taxId           String?
-  riskTolerance   RiskLevel @default(MODERATE)
-  investmentGoals String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-
-  // Relations
-  user            User      @relation(fields: [userId], references: [id])
-
-  @@map("profiles")
-}
-
-model Account {
-  id              String          @id @default(cuid())
-  userId          String
-  type            AccountType
-  number          String
-  institution     String
-  balance         Decimal         @default(0)
-  currency        String          @default("USD")
-  isActive        Boolean         @default(true)
-  lastSync        DateTime?
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
-
-  // Relations
-  user            User            @relation(fields: [userId], references: [id])
-  transactions    Transaction[]
-
-  @@map("accounts")
-}
-
-model Portfolio {
-  id              String    @id @default(cuid())
-  userId          String
-  name            String
-  type            PortfolioType
-  balance         Decimal   @default(0)
-  currency        String    @default("USD")
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-
-  // Relations
-  user            User      @relation(fields: [userId], references: [id])
-  holdings        Holding[]
-
-  @@map("portfolios")
-}
-
-model Holding {
-  id              String    @id @default(cuid())
-  portfolioId     String
-  symbol          String
-  shares          Decimal
-  costBasis       Decimal
-  currentValue    Decimal
-  currency        String    @default("USD")
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-
-  // Relations
-  portfolio       Portfolio @relation(fields: [portfolioId], references: [id])
-
-  @@map("holdings")
-}
-
-model Transaction {
-  id              String    @id @default(cuid())
-  accountId       String
-  type            TransactionType
-  amount          Decimal
-  currency        String    @default("USD")
-  description     String?
-  category        String?
-  date            DateTime
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-
-  // Relations
-  account         Account   @relation(fields: [accountId], references: [id])
-
-  @@map("transactions")
-}
-
-model Document {
-  id              String          @id @default(cuid())
-  userId          String
-  type            DocumentType
-  name            String
-  path            String
-  mimeType        String
-  size            Int
-  category        String?
-  expirationDate  DateTime?
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
-
-  // Relations
-  user            User            @relation(fields: [userId], references: [id])
-
-  @@map("documents")
-}
-
-model LoginHistory {
-  id              String    @id @default(cuid())
-  userId          String
-  ipAddress       String
-  userAgent       String
-  success         Boolean
-  failureReason   String?
-  createdAt       DateTime  @default(now())
-
-  // Relations
-  user            User      @relation(fields: [userId], references: [id])
-
-  @@map("login_history")
-}
-
-model AuditLog {
-  id              String    @id @default(cuid())
-  userId          String
-  action          String
-  details         Json?
-  ipAddress       String?
-  userAgent       String?
-  createdAt       DateTime  @default(now())
-
-  // Relations
-  user            User      @relation(fields: [userId], references: [id])
-
-  @@map("audit_logs")
+generator client {
+  provider = "prisma-client-js"
 }
 
 enum UserRole {
   ADMIN
   ADVISOR
-  CLIENT
+  USER
 }
 
-enum RiskLevel {
-  CONSERVATIVE
-  MODERATE
-  AGGRESSIVE
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  emailVerified DateTime?
+  password      String
+  role          UserRole  @default(USER)
+  profile       Profile?
+  notifications Notification[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
-enum AccountType {
-  CHECKING
-  SAVINGS
-  INVESTMENT
-  CREDIT
-  LOAN
+model Profile {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  user          User      @relation(fields: [userId], references: [id])
+  
+  firstName     String
+  lastName      String
+  phoneNumber   String?
+  address       String?
+  dateOfBirth   DateTime?
+  
+  riskProfile   String?
+  completionPercentage Int @default(0)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
-enum PortfolioType {
-  RETIREMENT
-  INVESTMENT
-  EDUCATION
-  TRADING
-}
-
-enum TransactionType {
-  DEPOSIT
-  WITHDRAWAL
-  TRANSFER
-  FEE
-  INTEREST
-  DIVIDEND
-  TRADE
-}
-
-enum DocumentType {
-  ID_VERIFICATION
-  TAX_FORM
-  ACCOUNT_STATEMENT
-  CONTRACT
-  OTHER
+model Notification {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id])
+  
+  title         String
+  message       String
+  type          String
+  isRead        Boolean   @default(false)
+  
+  createdAt     DateTime  @default(now())
 }

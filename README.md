@@ -1,66 +1,26 @@
-# Buckalew Financial Services Website
+# Buckalew Financial Services
 
-## Overview
-This repository contains the official website for Buckalew Financial Services, providing a comprehensive online platform for insurance and financial consulting services.
+## Project Overview
+A comprehensive financial services web application built with:
+- Next.js
+- TypeScript
+- Prisma ORM
+- PostgreSQL
+- NextAuth
 
-## Features
-- Responsive and mobile-friendly design
-- SEO-optimized structure
-- Detailed service pages
-- Interactive user experience
-- Accessibility compliance
+## Key Features
+- User Authentication
+- Financial Calculators
+- Notification System
+- Admin Dashboard
+- Analytics Tracking
 
-## Technologies Used
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Semantic UI
-- Responsive Design
-- Schema.org Structured Data
-
-## Pages
-- Home
-- Services
-- Life Insurance
-- Medicare
-- About
-- Contact
-- Privacy Policy
-- Terms of Service
-
-## Performance Optimizations
-- Lazy loading
-- Minimal external dependencies
-- Optimized CSS and JavaScript
-- Semantic HTML structure
-
-## SEO Enhancements
-- Structured JSON-LD data
-- Meta tags optimization
-- Sitemap and robots.txt
-- Semantic HTML markup
-
-## Getting Started
+## Setup Instructions
 1. Clone the repository
-2. Open index.html in a modern web browser
-3. No additional setup required
+2. Install dependencies: `npm install`
+3. Set up environment variables
+4. Run database migrations: `npx prisma migrate dev`
+5. Start development server: `npm run dev`
 
-## Deployment
-- Easily deployable to any static hosting service
-- GitHub Pages compatible
-- Netlify and Vercel ready
-
-## Contributing
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
-
-## Contact
-- Website: www.buckalew-financial.com
-- Email: contact@buckalew-financial.com
-- Phone: (555) 123-4567
-
-## License
-Copyright (c) 2024 Buckalew Financial Services
+## Current Status
+See project status report for detailed progress and upcoming features.
