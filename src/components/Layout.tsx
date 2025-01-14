@@ -27,7 +27,7 @@ export function Layout({ children }: LayoutProps) {
 
   return (
     <div className='min-h-screen bg-gray-50'>
-      {/* Full layout content */}
+      {/* Full layout content with navigation */}
       <main>{children}</main>
     </div>
   );
