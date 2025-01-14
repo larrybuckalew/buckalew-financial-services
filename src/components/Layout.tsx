@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { Menu, X, User, Phone, Mail, Facebook, Twitter, LinkedIn, ChevronDown } from "lucide-react";
 
 export default function Layout({ children }) {
@@ -22,7 +23,7 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Rest of the Layout component content */}
+      {/* Navigation and content code remains the same */}
     </div>
   );
 }
