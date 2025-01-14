@@ -6,7 +6,7 @@ export interface LayoutProps {
   children: React.ReactNode;
 }
 
-export function Layout({ children }: LayoutProps) {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isServicesOpen, setIsServicesOpen] = React.useState(false);
 
@@ -27,8 +27,10 @@ export function Layout({ children }: LayoutProps) {
 
   return (
     <div className='min-h-screen bg-gray-50'>
-      {/* Full layout content with navigation */}
+      {/* Full layout content with footer */}
       <main>{children}</main>
     </div>
   );
-}
+};
+
+export default Layout;
