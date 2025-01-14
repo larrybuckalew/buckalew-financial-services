@@ -1,34 +1,36 @@
-import React, { ReactNode } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, User, Phone, Mail, Facebook, Twitter, LinkedIn, ChevronDown } from 'lucide-react';
 
 interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
   const navItems = [
     {
-      name: 'Services',
+      name: "Services",
       dropdownItems: [
-        { name: 'Financial Planning', href: '/services/financial-planning' },
-        { name: 'Retirement Planning', href: '/services/retirement' },
-        { name: 'Investment Management', href: '/services/investment-management' },
-        { name: 'Insurance Solutions', href: '/services/insurance-solutions' }
+        { name: "Financial Planning", href: "/services/financial-planning" },
+        { name: "Retirement Planning", href: "/services/retirement" },
+        { name: "Investment Management", href: "/services/investment-management" },
+        { name: "Insurance Solutions", href: "/services/insurance-solutions" }
       ]
     },
-    { name: 'Calculators', href: '/calculators' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' }
+    { name: "Calculators", href: "/calculators" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" }
   ];
 
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isServicesOpen, setIsServicesOpen] = React.useState(false);
-
   return (
-    <div className='min-h-screen bg-gray-50'>
-      {/* Layout content */}
+    <div className="min-h-screen bg-gray-50">
+      {/* Full layout content */}
       <main>{children}</main>
     </div>
   );
-}
+};
+
+export default Layout;
