@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import { Menu, X, User, Phone, Mail, Facebook, Twitter, LinkedIn, ChevronDown } from 'lucide-react';
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-
+export default function Layout({ children }: LayoutProps) {
   const navItems = [
     {
       name: 'Services',
@@ -25,12 +22,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { name: 'Contact', href: '/contact' }
   ];
 
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isServicesOpen, setIsServicesOpen] = React.useState(false);
+
   return (
     <div className='min-h-screen bg-gray-50'>
-      {/* Layout content remains the same */}
+      {/* Layout content */}
       <main>{children}</main>
     </div>
   );
-};
-
-export default Layout;
+}
