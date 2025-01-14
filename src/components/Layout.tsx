@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, ReactNode } from "react";
 import Link from "next/link";
 import { Menu, X, User, Phone, Mail, Facebook, Twitter, LinkedIn, ChevronDown } from "lucide-react";
 
-export default function Layout({ children }) {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
@@ -23,7 +27,9 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation and content code remains the same */}
+      {/* Layout content remains the same */}
     </div>
   );
-}
+};
+
+export default Layout;
