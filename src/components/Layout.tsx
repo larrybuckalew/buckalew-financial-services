@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import { Menu, X, User, Phone, Mail, Facebook, Twitter, LinkedIn, ChevronDown } from 'lucide-react';
 
 export interface LayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export default function Layout({ children }: LayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isServicesOpen, setIsServicesOpen] = React.useState(false);
 
@@ -27,10 +27,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className='min-h-screen bg-gray-50'>
-      {/* Full layout content with footer */}
+      {/* Full layout content with navigation and footer */}
       <main>{children}</main>
     </div>
   );
-};
-
-export default Layout;
+}
