@@ -22,9 +22,14 @@ model User {
   role          UserRole  @default(USER)
   profile       Profile?
   notifications Notification[]
+  adminLogs     AdminLog[]
   
+  lastLogin     DateTime?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+
+  @@index([email])
+  @@index([role])
 }
 
 model Profile {
@@ -43,6 +48,9 @@ model Profile {
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([completionPercentage])
 }
 
 model Notification {
@@ -56,4 +64,25 @@ model Notification {
   isRead        Boolean   @default(false)
   
   createdAt     DateTime  @default(now())
+}
+
+model AdminLog {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  userRole  UserRole
+  category  String
+  action    String
+  details   String?
+  ipAddress String?
+  createdAt DateTime  @default(now())
+}
+
+model SystemSettings {
+  id                String    @id
+  siteName          String    @default("Buckalew Financial Services")
+  maintenanceMode   Boolean   @default(false)
+  analyticsEnabled  Boolean   @default(true)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
 }
