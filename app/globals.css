@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #285A84;
+  --secondary-color: #85C872;
+  --background-color: #FFFFFF;
+}
+
+body {
+  @apply text-bfs-blue bg-bfs-background font-montserrat-medium;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2 bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-bfs-green-0 rounded-full;
+}
+
+/* Focus states */
+*:focus {
+  @apply outline-none ring-2 ring-bfs-green-0 ring-offset-2;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utility classes */
+.section-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive typography */
+h1 {
+  @apply text-4xl md:text-5xl font-bold;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl font-semibold;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 bg-bfs-green-0 text-white rounded-md hover:bg-bfs-green-2 transition-colors;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 border border-bfs-green-0 text-bfs-green-0 rounded-md hover:bg-bfs-green-1 transition-colors;
+}
