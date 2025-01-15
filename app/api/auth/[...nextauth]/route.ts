@@ -1,61 +1,76 @@
-import NextAuth from 'next-auth';
-import { AuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import { prisma } from '@/lib/prisma';
-import { compare } from 'bcrypt';
+import NextAuth from 'next-auth'
+import CredentialsProvider from 'next-auth/providers/credentials'
+import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcryptjs'
 
-export const authOptions: AuthOptions = {
-  adapter: PrismaAdapter(prisma),
+const prisma = new PrismaClient()
+
+export const authOptions = {
   providers: [
     CredentialsProvider({
-      name: 'credentials',
+      name: 'Credentials',
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" }
+        email: { label: 'Email', type: 'text' },
+        password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error('Invalid credentials');
+          return null
         }
 
         const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email
-          }
-        });
+          where: { email: credentials.email }
+        })
 
-        if (!user || !user.hashedPassword) {
-          throw new Error('Invalid credentials');
+        if (!user) {
+          return null
         }
 
-        const isCorrectPassword = await compare(
+        const isPasswordValid = await bcrypt.compare(
           credentials.password,
-          user.hashedPassword
-        );
+          user.password
+        )
 
-        if (!isCorrectPassword) {
-          throw new Error('Invalid credentials');
+        if (!isPasswordValid) {
+          return null
         }
 
         return {
           id: user.id,
           email: user.email,
           name: user.name,
-          role: user.role,
-        };
+          role: user.role
+        }
       }
     })
   ],
-  debug: process.env.NODE_ENV === 'development',
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id
+        token.role = user.role
+      }
+      return token
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.id as string
+        session.user.role = token.role as string
+      }
+      return session
+    }
+  },
+  pages: {
+    signIn: '/auth/login',
+    signOut: '/auth/logout',
+    error: '/auth/error'
+  },
   session: {
-    strategy: "jwt",
-  },
-  jwt: {
-    secret: process.env.NEXTAUTH_JWT_SECRET,
-  },
-  secret: process.env.NEXTAUTH_SECRET,
-};
+    strategy: 'jwt',
+    maxAge: 30 * 24 * 60 * 60 // 30 days
+  }
+}
 
-const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST };
+const handler = NextAuth(authOptions)
+
+export { handler as GET, handler as POST }
