@@ -12,19 +12,18 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: 'var(--primary)',
-        secondary: 'var(--secondary)',
-        background: 'var(--background)',
-        text: 'var(--text)',
+        primary: 'var(--color-primary)',     // #285A84
+        'accent-1': 'var(--color-accent-1)', // #85C872
+        'accent-2': 'var(--color-accent-2)', // #C2EF7E
+        'accent-3': 'var(--color-accent-3)', // #5EA669
+        background: 'var(--color-background)', // #FFFFFF
       },
-      keyframes: {
-        'fade-in': {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
+      fontFamily: {
+        primary: ['var(--font-primary)', 'sans-serif'],
       },
-      animation: {
-        'fade-in': 'fade-in 0.3s ease-in-out',
+      fontWeight: {
+        medium: 500,
+        semibold: 600,
       },
     },
   },

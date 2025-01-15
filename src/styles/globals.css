@@ -1,15 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --primary: #0047AB;
-  --secondary: #4A90E2;
-  --background: #FFFFFF;
-  --text: #333333;
+  /* Primary Brand Colors */
+  --color-primary: #285A84;    /* Primary Text & Brand Color */
+  --color-accent-1: #85C872;   /* Icon Color 0 */
+  --color-accent-2: #C2EF7E;   /* Icon Color 1 */
+  --color-accent-3: #5EA669;   /* Icon Color 2 */
+  --color-background: #FFFFFF;  /* Background Color */
+
+  /* Typography */
+  --font-primary: 'Montserrat', sans-serif;
 }
 
-body {
-  color: var(--text);
-  background: var(--background);
+@layer base {
+  body {
+    @apply bg-background text-primary font-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 font-medium px-4 py-2 rounded-md transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-accent-1 text-white hover:bg-accent-1/90 font-medium px-4 py-2 rounded-md transition-colors;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium px-4 py-2 rounded-md transition-colors;
+  }
+
+  .nav-link {
+    @apply text-primary hover:text-accent-1 transition-colors;
+  }
 }
