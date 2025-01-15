@@ -7,82 +7,128 @@ generator client {
   provider = "prisma-client-js"
 }
 
-enum UserRole {
-  ADMIN
-  ADVISOR
-  USER
-}
-
+// User model with extended profile and roles
 model User {
   id            String    @id @default(cuid())
   email         String    @unique
   name          String?
   emailVerified DateTime?
+  image         String?
   password      String
-  role          UserRole  @default(USER)
-  profile       Profile?
+  role          UserRole  @default(CLIENT)
+
+  profile       UserProfile?
+  appointments  Appointment[]
+  documents     Document[]
+  messages      Message[]
   notifications Notification[]
-  adminLogs     AdminLog[]
-  
-  lastLogin     DateTime?
+
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-
-  @@index([email])
-  @@index([role])
 }
 
-model Profile {
-  id            String    @id @default(cuid())
-  userId        String    @unique
-  user          User      @relation(fields: [userId], references: [id])
-  
-  firstName     String
-  lastName      String
+// Extended user profile
+model UserProfile {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  user          User     @relation(fields: [userId], references: [id])
+
   phoneNumber   String?
   address       String?
   dateOfBirth   DateTime?
-  
-  riskProfile   String?
-  completionPercentage Int @default(0)
-  
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-
-  @@index([userId])
-  @@index([completionPercentage])
+  occupation    String?
+  annualIncome  Float?
+  riskTolerance RiskTolerance?
 }
 
+// Appointment scheduling model
+model Appointment {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id])
+
+  date          DateTime
+  serviceType   ServiceType
+  status        AppointmentStatus @default(PENDING)
+  notes         String?
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// Document management model
+model Document {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id])
+
+  name          String
+  fileUrl       String
+  type          DocumentType
+  uploadedAt    DateTime  @default(now())
+}
+
+// Secure messaging model
+model Message {
+  id            String    @id @default(cuid())
+  senderId      String
+  sender        User      @relation(fields: [senderId], references: [id])
+
+  content       String
+  isRead        Boolean   @default(false)
+  sentAt        DateTime  @default(now())
+}
+
+// Notification system model
 model Notification {
   id            String    @id @default(cuid())
   userId        String
   user          User      @relation(fields: [userId], references: [id])
-  
-  title         String
+
   message       String
-  type          String
+  type          NotificationType
   isRead        Boolean   @default(false)
-  
   createdAt     DateTime  @default(now())
 }
 
-model AdminLog {
-  id        String    @id @default(cuid())
-  userId    String
-  user      User      @relation(fields: [userId], references: [id])
-  userRole  UserRole
-  category  String
-  action    String
-  details   String?
-  ipAddress String?
-  createdAt DateTime  @default(now())
+// Enums for type safety
+enum UserRole {
+  CLIENT
+  ADVISOR
+  ADMIN
 }
 
-model SystemSettings {
-  id                String    @id
-  siteName          String    @default("Buckalew Financial Services")
-  maintenanceMode   Boolean   @default(false)
-  analyticsEnabled  Boolean   @default(true)
-  createdAt         DateTime  @default(now())
-  updatedAt         DateTime  @updatedAt
+enum ServiceType {
+  FINANCIAL_PLANNING
+  INVESTMENT_MANAGEMENT
+  RETIREMENT_PLANNING
+  TAX_CONSULTATION
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum DocumentType {
+  TAX_DOCUMENT
+  FINANCIAL_STATEMENT
+  INVESTMENT_REPORT
+  OTHER
+}
+
+enum NotificationType {
+  APPOINTMENT
+  MESSAGE
+  DOCUMENT
+  ACCOUNT
+  SYSTEM
+}
+
+enum RiskTolerance {
+  LOW
+  MEDIUM
+  HIGH
 }
