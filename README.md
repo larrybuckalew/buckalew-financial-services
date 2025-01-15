@@ -1,26 +1,34 @@
-# Buckalew Financial Services
+# Buckalew Financial Services Web Application
 
 ## Project Overview
-A comprehensive financial services web application built with:
+A comprehensive web application for Buckalew Financial Services, providing financial planning, investment management, and client services.
+
+## Features
+- Financial Planning Services
+- Investment Management
+- Retirement Planning
+- Insurance Services
+- Estate Planning
+- Interactive Calculators
+- Secure Authentication
+- Appointment Scheduling
+
+## Technology Stack
 - Next.js
+- React
 - TypeScript
-- Prisma ORM
-- PostgreSQL
-- NextAuth
+- Tailwind CSS
+- Prisma
+- Playwright for E2E Testing
 
-## Key Features
-- User Authentication
-- Financial Calculators
-- Notification System
-- Admin Dashboard
-- Analytics Tracking
-
-## Setup Instructions
+## Getting Started
 1. Clone the repository
 2. Install dependencies: `npm install`
 3. Set up environment variables
-4. Run database migrations: `npx prisma migrate dev`
-5. Start development server: `npm run dev`
+4. Run development server: `npm run dev`
 
-## Current Status
-See project status report for detailed progress and upcoming features.
+## Deployment
+Deployed on Vercel with CI/CD integration.
+
+## Contributing
+Please read the contribution guidelines before submitting pull requests.
