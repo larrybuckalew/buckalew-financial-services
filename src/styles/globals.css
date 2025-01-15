@@ -3,26 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
+  --primary: #0047AB;
+  --secondary: #4A90E2;
+  --background: #FFFFFF;
+  --text: #333333;
 }
 
 body {
-  @apply antialiased text-gray-900;
-}
-
-.btn {
-  @apply px-4 py-2 rounded-lg font-medium transition-colors;
-}
-
-.btn-primary {
-  @apply bg-blue-600 text-white hover:bg-blue-700;
-}
-
-.btn-secondary {
-  @apply bg-gray-100 text-gray-900 hover:bg-gray-200;
-}
-
-.input {
-  @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  color: var(--text);
+  background: var(--background);
 }
