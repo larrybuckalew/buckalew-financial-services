@@ -1,8 +1,8 @@
 export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-center">Contact Buckalew Financial Services</h1>
-      <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg p-8">
+      <h1 className="text-3xl font-bold mb-6 text-center">Contact Us</h1>
+      <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-8">
         <form className="space-y-4">
           <div>
             <label htmlFor="name" className="block mb-2">Name</label>
