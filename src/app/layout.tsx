@@ -1,13 +1,13 @@
 import { type Metadata } from 'next'
-import { Navbar } from '@/components/ui/navbar'
-import { Footer } from '@/components/ui/footer'
 import { Montserrat } from 'next/font/google'
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
 import '@/styles/globals.css'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['500', '600'],
-  variable: '--font-primary',
+  variable: '--font-montserrat',
 })
 
 export const metadata: Metadata = {
@@ -25,8 +25,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={montserrat.variable}>
-      <body className="min-h-screen flex flex-col">
-        <Navbar />
+      <body className="min-h-screen flex flex-col bg-white">
+        <Header />
         <main className="flex-grow">
           {children}
         </main>
