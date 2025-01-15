@@ -1,34 +1,64 @@
 # Buckalew Financial Services Web Application
 
 ## Project Overview
-A comprehensive web application for Buckalew Financial Services, providing financial planning, investment management, and client services.
+A comprehensive web application for financial services, providing clients with tools for financial planning, investment management, and personalized advisory services.
 
 ## Features
-- Financial Planning Services
-- Investment Management
-- Retirement Planning
-- Insurance Services
-- Estate Planning
-- Interactive Calculators
-- Secure Authentication
-- Appointment Scheduling
+- 🏠 Responsive Home Page
+- 💼 Financial Services Showcase
+- 🧮 Interactive Financial Calculators
+- 🔐 Secure Authentication
+- 📊 Investment Management Tools
+- 📝 Contact and Appointment Scheduling
 
 ## Technology Stack
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Prisma
-- Playwright for E2E Testing
+- **Frontend**: Next.js 13
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Testing**: Jest, Playwright
+- **Deployment**: Vercel
 
-## Getting Started
+## Prerequisites
+- Node.js 18+
+- npm 8+
+
+## Local Development Setup
 1. Clone the repository
-2. Install dependencies: `npm install`
-3. Set up environment variables
-4. Run development server: `npm run dev`
+   ```bash
+   git clone https://github.com/larrybuckalew/buckalew-financial-services.git
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+
+3. Copy environment variables
+   ```bash
+   cp .env.example .env.local
+   ```
+
+4. Run development server
+   ```bash
+   npm run dev
+   ```
+
+## Testing
+- Run unit tests: `npm test`
+- Run E2E tests: `npm run test:e2e`
 
 ## Deployment
-Deployed on Vercel with CI/CD integration.
+Automatically deployed to Vercel on push to main branch.
 
 ## Contributing
-Please read the contribution guidelines before submitting pull requests.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+Proprietary - Buckalew Financial Services
+
+## Contact
+Larry Buckalew - larry@buckalew-financial.com
