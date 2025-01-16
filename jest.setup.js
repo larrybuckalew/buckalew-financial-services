@@ -1,6 +1,9 @@
 import '@testing-library/jest-dom'
+import ResizeObserver from 'resize-observer-polyfill'
 
-global.ResizeObserver = require('resize-observer-polyfill')
+global.ResizeObserver = ResizeObserver
 
-jest.mock('next/router', () => require('next-router-mock'))
-jest.mock('next/navigation', () => require('next-router-mock/navigation'))
+import 'next-router-mock'
+import { setupNavigation } from 'next-router-mock/navigation'
+
+setupNavigation()
