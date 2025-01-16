@@ -1,0 +1,72 @@
+/* Mobile-First Responsive Design */
+
+/* Base styles (mobile) */
+:root {
+  --container-padding: 1rem;
+  --text-base: 1rem;
+  --text-large: 1.25rem;
+  --text-xl: 1.5rem;
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  padding: var(--container-padding);
+  margin: 0 auto;
+}
+
+/* Typography */
+html {
+  font-size: 16px;
+}
+
+/* Navigation */
+.nav-mobile {
+  display: block;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 2rem;
+    --text-base: 1.125rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .nav-mobile {
+    display: none;
+  }
+
+  .nav-desktop {
+    display: block;
+  }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: 4rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+}

@@ -1,0 +1,117 @@
+type User {
+  id: ID!
+  email: String!
+  name: String
+  role: UserRole!
+  profile: Profile
+  accounts: [Account!]
+  lastLogin: String
+}
+
+type Profile {
+  id: ID!
+  phoneNumber: String
+  address: String
+  city: String
+  state: String
+  zip: String
+  annualIncome: Float
+  riskTolerance: Int
+}
+
+type Account {
+  id: ID!
+  accountNumber: String!
+  accountType: String!
+  balance: Float!
+  transactions: [Transaction!]
+}
+
+type Transaction {
+  id: ID!
+  type: TransactionType!
+  amount: Float!
+  description: String
+  date: String!
+}
+
+type Investment {
+  id: ID!
+  productName: String!
+  currentValue: Float!
+  purchaseDate: String!
+  performance: InvestmentPerformance
+}
+
+type InvestmentPerformance {
+  totalReturn: Float!
+  annualizedReturn: Float!
+  sharpeRatio: Float
+}
+
+enum UserRole {
+  ADMIN
+  ADVISOR
+  CLIENT
+  GUEST
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  TRANSFER
+  INVESTMENT
+  FEE
+}
+
+type Query {
+  user(id: ID!): User
+  users: [User!]!
+  account(id: ID!): Account
+  investments(userId: ID!): [Investment!]!
+  transactions(accountId: ID!): [Transaction!]!
+  financialAnalytics(userId: ID!): FinancialAnalytics
+}
+
+type FinancialAnalytics {
+  totalNetWorth: Float!
+  monthlyIncome: Float!
+  monthlyExpenses: Float!
+  investmentAllocation: InvestmentAllocation!
+  riskProfile: RiskProfile!
+}
+
+type InvestmentAllocation {
+  stocks: Float!
+  bonds: Float!
+  crypto: Float!
+  realEstate: Float!
+}
+
+type RiskProfile {
+  tolerance: Int!
+  recommendedAllocation: String!
+  volatilityScore: Float!
+}
+
+type Mutation {
+  createUser(email: String!, password: String!, name: String): User!
+  updateProfile(userId: ID!, profileData: ProfileInput!): Profile!
+  createTransaction(accountId: ID!, transactionData: TransactionInput!): Transaction!
+}
+
+input ProfileInput {
+  phoneNumber: String
+  address: String
+  city: String
+  state: String
+  zip: String
+  annualIncome: Float
+  riskTolerance: Int
+}
+
+input TransactionInput {
+  type: TransactionType!
+  amount: Float!
+  description: String
+}
