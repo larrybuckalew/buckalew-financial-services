@@ -5,46 +5,102 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["fullTextSearch", "fullTextIndex", "jsonProtocol"]
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
-// Enhanced indexing for performance
 model User {
   id                String    @id @default(cuid())
   email             String    @unique
   name              String?
+  password          String
+  role              UserRole  @default(CLIENT)
   
-  // Indexes for common query patterns
+  // Add createdAt and updatedAt fields
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  // Relationships and other fields
+  profile           Profile?
+  accounts          Account[]
+  investments       Investment[]
+  transactions      Transaction[]
+  
+  // Indexes
   @@index([email])
   @@index([createdAt])
 }
 
-model Transaction {
+enum UserRole {
+  ADMIN
+  ADVISOR
+  CLIENT
+  GUEST
+}
+
+model Profile {
+  id                String    @id @default(cuid())
+  userId            String    @unique
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  phoneNumber       String?
+  address           String?
+  city              String?
+  state             String?
+  zip               String?
+  dateOfBirth       DateTime?
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model Account {
   id                String    @id @default(cuid())
   userId            String
-  amount            Decimal
-  type              String
-  description       String?
-  timestamp         DateTime  @default(now())
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   
-  // Compound indexes for complex queries
-  @@index([userId, timestamp])
-  @@index([type, timestamp])
+  accountNumber     String    @unique
+  accountType       String
+  balance           Decimal   @default(0)
   
-  // Full-text search for descriptions
-  @@fulltext([description])
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  investments       Investment[]
+  transactions      Transaction[]
 }
 
 model Investment {
   id                String    @id @default(cuid())
   userId            String
+  accountId         String
+  
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  account           Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  
   productName       String
   currentValue      Decimal
   purchaseDate      DateTime
   
-  // Optimize investment queries
-  @@index([userId, purchaseDate])
-  @@index([currentValue])
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  transactions      Transaction[]
 }
 
-// Add more indexes and optimizations as needed
+model Transaction {
+  id                String    @id @default(cuid())
+  userId            String
+  accountId         String
+  investmentId      String?
+  
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  account           Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  investment        Investment? @relation(fields: [investmentId], references: [id], onDelete: SetNull)
+  
+  type              String
+  amount            Decimal
+  description       String?
+  date              DateTime  @default(now())
+  
+  createdAt         DateTime  @default(now())
+}
