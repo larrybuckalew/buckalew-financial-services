@@ -1,0 +1,1 @@
+// Content from contact/page.tsx
