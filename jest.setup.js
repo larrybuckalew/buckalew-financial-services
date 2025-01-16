@@ -1,9 +1,6 @@
-// jest.setup.js
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom'
 
-// Optional: Add global mocks or setup for your tests
-// For example:
-// jest.mock('next/router', () => require('next-router-mock'));
+global.ResizeObserver = require('resize-observer-polyfill')
 
-// Extend timeout for async tests if needed
-jest.setTimeout(10000);
+jest.mock('next/router', () => require('next-router-mock'))
+jest.mock('next/navigation', () => require('next-router-mock/navigation'))
