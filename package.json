@@ -1,21 +1,5 @@
-﻿{
-  "name": "buckalew-financial-unified",
+{
+  "name": "buckalew-financial-services",
   "version": "1.0.0",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "services/*"
-  ],
-  "scripts": {
-    "dev": "turbo run dev --parallel",
-    "build": "turbo run build",
-    "test": "turbo run test",
-    "lint": "turbo run lint"
-  },
-  "devDependencies": {
-    "turbo": "^1.11.2",
-    "@types/node": "^20.10.5",
-    "typescript": "^5.3.3"
-  }
+  "private": true
 }
