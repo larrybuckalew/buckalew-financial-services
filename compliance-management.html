@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Management | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/compliance-management.html">Compliance</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="compliance-container">
+        <section class="compliance-hero">
+            <h1>Regulatory Compliance Management</h1>
+            <p>Ensuring transparency, security, and regulatory adherence</p>
+        </section>
+
+        <section class="compliance-overview">
+            <h2>Compliance Dashboard</h2>
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <h3>Regulatory Compliance Status</h3>
+                    <div id="compliance-status" class="status-indicator"></div>
+                    <div id="compliance-details"></div>
+                </div>
+
+                <div class="compliance-card">
+                    <h3>Recent Regulatory Updates</h3>
+                    <div id="regulatory-updates" class="updates-list"></div>
+                </div>
+
+                <div class="compliance-card">
+                    <h3>Risk Assessment</h3>
+                    <canvas id="compliance-risk-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="reporting-tools">
+            <h2>Reporting and Documentation</h2>
+            <div class="reporting-grid">
+                <div class="reporting-card">
+                    <h3>Regulatory Report Generator</h3>
+                    <form id="report-generation-form">
+                        <div class="form-group">
+                            <label>Report Type</label>
+                            <select id="report-type" required>
+                                <option value="">Select Report Type</option>
+                                <option value="annual-compliance">Annual Compliance Report</option>
+                                <option value="risk-assessment">Risk Assessment Report</option>
+                                <option value="client-disclosure">Client Disclosure Report</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Reporting Period</label>
+                            <input type="month" id="reporting-period" required>
+                        </div>
+                        <button type="submit" class="btn">Generate Report</button>
+                    </form>
+                </div>
+
+                <div class="reporting-card">
+                    <h3>Compliance Document Library</h3>
+                    <div id="document-library" class="document-list"></div>
+                    <button id="upload-compliance-doc" class="btn">Upload Document</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="regulatory-training">
+            <h2>Compliance Training</h2>
+            <div class="training-grid">
+                <div class="training-card">
+                    <h3>Mandatory Training Modules</h3>
+                    <div id="training-modules" class="modules-list"></div>
+                </div>
+
+                <div class="training-card">
+                    <h3>Certification Tracking</h3>
+                    <div id="certification-status" class="certification-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="audit-trail">
+            <h2>Compliance Audit Trail</h2>
+            <div id="audit-log" class="audit-log-table"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="upload-document-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Upload Compliance Document</h2>
+            <form id="compliance-document-upload">
+                <div class="form-group">
+                    <label>Document Type</label>
+                    <select required>
+                        <option value="">Select Document Type</option>
+                        <option value="policy">Policy Document</option>
+                        <option value="procedure">Procedure Manual</option>
+                        <option value="report">Compliance Report</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Document File</label>
+                    <input type="file" required>
+                </div>
+                <button type="submit" class="btn">Upload Document</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="compliance-management.js"></script>
+</body>
+</html>

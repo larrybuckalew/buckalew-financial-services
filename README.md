@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Buckalew Financial Services Unified Project
 
 ## Project Overview
@@ -99,3 +100,20 @@ Proprietary - Buckalew Financial Services
 - Email: support@buckalewfinancial.com
 - Website: https://buckalewfinancial.com
 ```
+=======
+# Buckalew Financial Services
+
+A comprehensive web application for financial planning and advisory services.
+
+## Features
+- Financial Planning Dashboard
+- Investment Management
+- Secure Authentication
+- Real-time Market Data
+
+## Technologies
+- Next.js 13
+- TypeScript
+- Tailwind CSS
+- Prisma ORM
+>>>>>>> 8b23bf4b151ec0d55503841543412fcc0f36a232

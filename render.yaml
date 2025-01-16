@@ -1,0 +1,88 @@
+services:
+  # Web service (Frontend)
+  - type: web
+    name: buckalew-financial-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./.next
+    autoDeploy: true
+    domains:
+      - app.buckalewfinancial.com
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: buckalew-financial-api
+          type: web
+          property: host
+
+  # API service (Backend)
+  - type: web
+    name: buckalew-financial-api
+    env: node
+    buildCommand: cd server && npm install
+    startCommand: node server/server.js
+    autoDeploy: true
+    domains:
+      - api.buckalewfinancial.com
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8080
+      - key: CORS_ORIGIN
+        sync: false # Will be set per environment
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRATION
+        value: 24h
+      - key: REFRESH_TOKEN_SECRET
+        generateValue: true
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+
+  # Database service
+  - type: pserv
+    name: buckalew-financial-db
+    env: docker
+    dockerfilePath: ./Dockerfile.postgres
+    autoDeploy: true
+    disk:
+      name: data
+      mountPath: /var/lib/postgresql/data
+      sizeGB: 10
+
+# Environment-specific configurations
+environments:
+  - name: production
+    envVars:
+      - key: CORS_ORIGIN
+        value: https://app.buckalewfinancial.com
+      - key: NODE_ENV
+        value: production
+
+  - name: staging
+    envVars:
+      - key: CORS_ORIGIN
+        value: https://staging.buckalewfinancial.com
+      - key: NODE_ENV
+        value: staging

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators - Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+            <div class="navbar-links">
+                <a href="/">Home</a>
+                <a href="/services.html">Services</a>
+                <a href="/financial-calculator.html">Calculators</a>
+                <a href="/contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="financial-calculators">
+            <h1>Financial Planning Calculators</h1>
+            <p>Use these tools to gain insights into your financial future.</p>
+
+            <div class="calculator-grid">
+                <div class="calculator-card">
+                    <h2>Retirement Savings Calculator</h2>
+                    <form id="retirement-calculator">
+                        <div class="form-group">
+                            <label for="current-age">Current Age</label>
+                            <input type="number" id="current-age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="retirement-age">Desired Retirement Age</label>
+                            <input type="number" id="retirement-age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="current-savings">Current Savings</label>
+                            <input type="number" id="current-savings" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly-contribution">Monthly Contribution</label>
+                            <input type="number" id="monthly-contribution" required>
+                        </div>
+                        <button type="submit" class="btn">Calculate</button>
+                    </form>
+                    <div id="retirement-result" class="calculator-result"></div>
+                </div>
+
+                <div class="calculator-card">
+                    <h2>Life Insurance Needs Calculator</h2>
+                    <form id="life-insurance-calculator">
+                        <div class="form-group">
+                            <label for="annual-income">Annual Income</label>
+                            <input type="number" id="annual-income" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dependents">Number of Dependents</label>
+                            <input type="number" id="dependents" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="existing-debts">Existing Debts</label>
+                            <input type="number" id="existing-debts" required>
+                        </div>
+                        <button type="submit" class="btn">Calculate Coverage</button>
+                    </form>
+                    <div id="life-insurance-result" class="calculator-result"></div>
+                </div>
+            </div>
+
+            <div class="calculator-disclaimer">
+                <h3>Important Note</h3>
+                <p>These calculators provide estimated results. For personalized advice, schedule a consultation with our financial experts.</p>
+                <a href="/contact.html" class="btn">Book Consultation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="calculators.js"></script>
+</body>
+</html>

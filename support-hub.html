@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support Hub | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/support-hub.html">Support</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="support-hub-container">
+        <section class="support-hero">
+            <h1>Customer Support Center</h1>
+            <p>We're here to help you navigate your financial journey</p>
+        </section>
+
+        <section class="support-options">
+            <div class="support-grid">
+                <div class="support-card">
+                    <h2>Live Chat</h2>
+                    <p>Instant connection with our support team</p>
+                    <button id="start-live-chat" class="btn">Start Chat</button>
+                </div>
+
+                <div class="support-card">
+                    <h2>Schedule Consultation</h2>
+                    <p>Book a one-on-one financial consultation</p>
+                    <button id="schedule-consultation" class="btn">Book Now</button>
+                </div>
+
+                <div class="support-card">
+                    <h2>FAQ & Resources</h2>
+                    <p>Find answers to common questions</p>
+                    <button id="view-faqs" class="btn">View FAQs</button>
+                </div>
+            n>
+            </div>
+        </section>
+
+        <section class="support-communication">
+            <h2>Contact Our Support Team</h2>
+            <form id="support-request-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="support-category">Support Category</label>
+                    <select id="support-category" required>
+                        <option value="">Select Category</option>
+                        <option value="account">Account Support</option>
+                        <option value="billing">Billing Inquiries</option>
+                        <option value="technical">Technical Support</option>
+                        <option value="general">General Inquiry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Support Request</button>
+            </form>
+        </section>
+
+        <section class="support-hours">
+            <h2>Support Available</h2>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>Phone Support</h3>
+                    <p>Monday-Friday: 8am - 8pm EST</p>
+                    <p>Saturday: 10am - 4pm EST</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Email Support</h3>
+                    <p>24/7 Support via Email</p>
+                    <p>support@buckalew-financial.com</p>
+                    <p>Typical Response: Within 24 hours</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="emergency-support">
+            <h2>Emergency Financial Assistance</h2>
+            <div class="emergency-details">
+                <p>If you're experiencing a financial emergency, our dedicated support team is ready to help.</p>
+                <button id="emergency-support" class="btn emergency-btn">Emergency Support</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="live-chat-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Live Chat Support</h2>
+            <div id="chat-messages" class="chat-window"></div>
+            <div class="chat-input">
+                <input type="text" id="chat-message-input" placeholder="Type your message...">
+                <button id="send-chat-message" class="btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="support-hub.js"></script>
+</body>
+</html>

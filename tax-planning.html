@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Planning Optimizer | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/tax-planning.html">Tax Planning</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="tax-planning-container">
+        <section class="tax-hero">
+            <h1>Smart Tax Planning Strategy</h1>
+            <p>Maximize your savings and minimize your tax liability</p>
+        </section>
+
+        <section class="tax-profile">
+            <h2>Personal Tax Profile</h2>
+            <div class="tax-input-grid">
+                <div class="tax-input-section">
+                    <h3>Income Information</h3>
+                    <div class="form-group">
+                        <label>Filing Status</label>
+                        <select id="filing-status">
+                            <option value="single">Single</option>
+                            <option value="married-joint">Married Filing Jointly</option>
+                            <option value="married-separate">Married Filing Separately</option>
+                            <option value="head-of-household">Head of Household</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Annual Income</label>
+                        <input type="number" id="total-income" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Taxable Income</label>
+                        <input type="number" id="taxable-income" required>
+                    </div>
+                </div>
+
+                <div class="tax-input-section">
+                    <h3>Deductions and Credits</h3>
+                    <div class="form-group">
+                        <label>Standard Deduction</label>
+                        <input type="number" id="standard-deduction" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Itemized Deductions</label>
+                        <input type="number" id="itemized-deductions">
+                    </div>
+                    <div class="form-group">
+                        <label>Tax Credits</label>
+                        <input type="number" id="tax-credits">
+                    </div>
+                </div>
+
+                <div class="tax-input-section">
+                    <h3>Investment and Retirement</h3>
+                    <div class="form-group">
+                        <label>401(k) Contributions</label>
+                        <input type="number" id="401k-contributions">
+                    </div>
+                    <div class="form-group">
+                        <label>IRA Contributions</label>
+                        <input type="number" id="ira-contributions">
+                    </div>
+                    <div class="form-group">
+                        <label>Capital Gains/Losses</label>
+                        <input type="number" id="capital-gains">
+                    </div>
+                </div>
+            </div>
+
+            <button id="analyze-taxes" class="btn">Analyze Tax Strategy</button>
+        </section>
+
+        <section class="tax-analysis-results">
+            <h2>Tax Strategy Analysis</h2>
+            <div class="results-grid">
+                <div class="tax-result-card">
+                    <h3>Tax Liability</h3>
+                    <div id="tax-liability-details"></div>
+                </div>
+                <div class="tax-result-card">
+                    <h3>Optimization Recommendations</h3>
+                    <div id="tax-optimization-recommendations"></div>
+                </div>
+                <div class="tax-result-card">
+                    <h3>Tax Savings Projection</h3>
+                    <canvas id="tax-savings-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="tax-strategy-resources">
+            <h2>Tax Planning Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>Tax Reduction Strategies Guide</h3>
+                    <p>Expert tips for minimizing your tax burden</p>
+                    <a href="/resources/tax-strategies.html" class="btn">Download Guide</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Retirement Account Tax Benefits</h3>
+                    <p>Maximize tax advantages of retirement accounts</p>
+                    <a href="/resources/retirement-tax-benefits.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="consultation-cta">
+            <h2>Personalized Tax Planning</h2>
+            <p>Get expert guidance to optimize your tax strategy</p>
+            <a href="/contact.html" class="btn">Schedule Consultation</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="tax-planning.js"></script>
+</body>
+</html>

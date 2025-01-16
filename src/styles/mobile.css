@@ -1,0 +1,82 @@
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  /* Dashboard layout */
+  .dashboard-grid {
+    @apply grid-cols-1;
+  }
+
+  /* Compact card designs */
+  .financial-card {
+    @apply p-3 rounded-lg shadow-sm;
+  }
+
+  /* Typography adjustments */
+  .mobile-heading {
+    @apply text-lg font-semibold;
+  }
+
+  .mobile-text {
+    @apply text-sm;
+  }
+
+  /* Navigation */
+  .mobile-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-white shadow-lg flex justify-around p-2;
+  }
+
+  .mobile-nav-item {
+    @apply flex flex-col items-center text-xs;
+  }
+
+  /* Form inputs */
+  .mobile-input {
+    @apply w-full p-2 text-sm rounded-md;
+  }
+
+  /* Chart responsiveness */
+  .responsive-chart {
+    @apply w-full h-48;
+  }
+
+  /* Compact table */
+  .mobile-table {
+    @apply w-full text-xs;
+  }
+
+  .mobile-table-row {
+    @apply flex justify-between p-2 border-b;
+  }
+
+  /* Modal adjustments */
+  .mobile-modal {
+    @apply w-full max-w-sm mx-auto rounded-t-lg;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-grid {
+    @apply grid-cols-2;
+  }
+
+  .tablet-card {
+    @apply p-4;
+  }
+}
+
+/* Responsive typography */
+body {
+  @apply text-base;
+}
+
+/* Adaptive touch targets */
+button, 
+a, 
+.touch-target {
+  @apply min-w-[44px] min-h-[44px];
+}
+
+/* Responsive images */
+img {
+  @apply max-w-full h-auto;
+}

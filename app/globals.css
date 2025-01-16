@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
 
+=======
+>>>>>>> 8b23bf4b151ec0d55503841543412fcc0f36a232
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 :root {
   --primary-color: #285A84;
   --secondary-color: #85C872;
@@ -65,3 +69,8 @@ h2 {
 .btn-secondary {
   @apply px-6 py-3 border border-bfs-green-0 text-bfs-green-0 rounded-md hover:bg-bfs-green-1 transition-colors;
 }
+=======
+body {
+  @apply bg-gray-100 text-gray-900
+}
+>>>>>>> 8b23bf4b151ec0d55503841543412fcc0f36a232

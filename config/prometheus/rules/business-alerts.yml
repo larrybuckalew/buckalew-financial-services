@@ -1,0 +1,47 @@
+groups:
+  - name: business
+    rules:
+      - alert: HighPortfolioDeviation
+        expr: abs(portfolio_allocation_actual - portfolio_allocation_target) > 10
+        for: 1d
+        labels:
+          severity: warning
+        annotations:
+          summary: Portfolio allocation deviation detected
+          description: Portfolio allocation has deviated more than 10% from target
+
+      - alert: ExcessiveRiskLevel
+        expr: portfolio_risk_metrics{metric_type="var"} > 15
+        for: 1h
+        labels:
+          severity: critical
+        annotations:
+          summary: High portfolio risk level detected
+          description: Value at Risk (VaR) has exceeded 15%
+
+      - alert: UnusualTradingActivity
+        expr: rate(trading_activity_total[5m]) > historic_avg_rate * 3
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: Unusual trading activity detected
+          description: Trading activity is 3x higher than historical average
+
+      - alert: ComplianceCheckFailure
+        expr: rate(compliance_checks_total{result="failed"}[1h]) > 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: Compliance check failures detected
+          description: One or more compliance checks have failed
+
+      - alert: LowClientEngagement
+        expr: rate(client_activity_total[7d]) < threshold_min_activity
+        for: 7d
+        labels:
+          severity: warning
+        annotations:
+          summary: Low client engagement detected
+          description: Client activity is below expected threshold

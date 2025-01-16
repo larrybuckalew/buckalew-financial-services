@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Retirement Planner | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/retirement-planner.html">Retirement Planner</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="retirement-planner-container">
+        <section class="planner-hero">
+            <h1>Comprehensive Retirement Planning</h1>
+            <p>Personalized tools to secure your retirement future</p>
+        </section>
+
+        <section class="retirement-calculator">
+            <h2>Retirement Readiness Calculator</h2>
+            <div class="calculator-grid">
+                <div class="calculator-inputs">
+                    <div class="form-group">
+                        <label>Current Age</label>
+                        <input type="number" id="current-age" min="18" max="70" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Desired Retirement Age</label>
+                        <input type="number" id="retirement-age" min="55" max="75" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Annual Income</label>
+                        <input type="number" id="current-income" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Retirement Savings</label>
+                        <input type="number" id="current-savings" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Retirement Contribution</label>
+                        <input type="number" id="monthly-contribution" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Expected Annual Investment Return (%)</label>
+                        <input type="number" id="expected-return" min="1" max="15" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Estimated Annual Expenses in Retirement</label>
+                        <input type="number" id="retirement-expenses" required>
+                    </div>
+                    <button id="calculate-retirement" class="btn">Calculate Retirement Readiness</button>
+                </div>
+
+                <div class="calculator-results">
+                    <div id="retirement-projection" class="projection-summary">
+                        <h3>Retirement Projection</h3>
+                        <div id="projection-details"></div>
+                    </div>
+                    <canvas id="retirement-projection-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="retirement-resources">
+            <h2>Retirement Planning Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>Social Security Guide</h3>
+                    <p>Understand Social Security benefits and optimization strategies</p>
+                    <a href="/resources/social-security-guide.html" class="btn">Download Guide</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Retirement Savings Strategies</h3>
+                    <p>Expert tips for maximizing your retirement savings</p>
+                    <a href="/resources/savings-strategies.html" class="btn">View Strategies</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Healthcare in Retirement</h3>
+                    <p>Planning for healthcare costs and Medicare</p>
+                    <a href="/resources/healthcare-guide.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="retirement-milestones">
+            <h2>Retirement Planning Milestones</h2>
+            <div class="milestones-timeline">
+                <div class="milestone">
+                    <h3>Early Career (20-35)</h3>
+                    <p>Start retirement contributions, focus on growth</p>
+                </div>
+                <div class="milestone">
+                    <h3>Mid-Career (35-50)</h3>
+                    <p>Maximize contributions, diversify investments</p>
+                </div>
+                <div class="milestone">
+                    <h3>Pre-Retirement (50-65)</h3>
+                    <p>Optimize savings, reduce risk, plan transitions</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="consultation-cta">
+            <h2>Personalized Retirement Planning</h2>
+            <p>Get expert guidance tailored to your unique financial situation</p>
+            <a href="/contact.html" class="btn">Schedule Consultation</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="retirement-planner.js"></script>
+</body>
+</html>

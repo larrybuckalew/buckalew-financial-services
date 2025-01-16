@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Buckalew Financial Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .offline-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+
+        .offline-icon {
+            font-size: 72px;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .offline-tips {
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1>You Are Currently Offline</h1>
+        <p>It seems you've lost your internet connection. Don't worry, we've got you covered!</p>
+
+        <div class="offline-tips">
+            <h2>What You Can Do</h2>
+            <ul>
+                <li>Check your internet connection</li>
+                <li>Refresh the page</li>
+                <li>Some content may be available offline</li>
+            </ul>
+        </div>
+
+        <button class="btn" onclick="window.location.reload()">Retry Connection</button>
+    </div>
+
+    <script>
+        // Optional: Add a notification for offline/online status
+        window.addEventListener('online', () => {
+            alert('Connection restored! Reloading page.');
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>

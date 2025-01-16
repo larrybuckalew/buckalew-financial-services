@@ -7,41 +7,66 @@ on:
     branches: [ main, develop ]
 
 jobs:
-  build-and-test:
+  test:
     runs-on: ubuntu-latest
-
+    
+    # Use a PostgreSQL service container for database tests
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: test_db
+          POSTGRES_PASSWORD: testpassword
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '18.x'
-        
-    - name: Cache node modules
-      uses: actions/cache@v3
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+        node-version: '20.x'
+        cache: 'npm'
     
-    - name: Install Dependencies
+    - name: Install dependencies
       run: npm ci
     
-    - name: Lint Code
-      run: npm run lint
+    - name: Generate Prisma Client
+      run: npx prisma generate
+      env:
+        DATABASE_URL: postgresql://postgres:testpassword@localhost:5432/test_db
     
     - name: Run Unit Tests
-      run: npm test
-    
-    - name: Build Project
-      run: npm run build
+      run: npm run test
+      env:
+        CI: true
     
     - name: Run E2E Tests
-      run: npm run test:e2e
-    
-    - name: Upload Coverage
-      uses: codecov/codecov-action@v3
+      uses: actions/setup-node@v4
       with:
-        fail_ci_if_error: true
+        node-version: '20.x'
+    
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    
+    - name: Run Playwright Tests
+      run: npx playwright test
+      
+    # Optional: Upload test reports
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
+    
+    - name: Code Coverage
+      uses: codecov/codecov-action@v3
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

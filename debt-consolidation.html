@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debt Consolidation Analyzer | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/debt-consolidation.html">Debt Analyzer</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="debt-consolidation-container">
+        <section class="debt-hero">
+            <h1>Debt Consolidation Analyzer</h1>
+            <p>Understand your debt, explore optimization strategies</p>
+        </section>
+
+        <section class="debt-analyzer">
+            <form id="debt-consolidation-form">
+                <div class="form-section">
+                    <h2>Debt Information</h2>
+                    <div id="debt-entries">
+                        <div class="debt-entry">
+                            <div class="form-group">
+                                <label>Debt Type</label>
+                                <select name="debt-type" required>
+                                    <option value="credit-card">Credit Card</option>
+                                    <option value="personal-loan">Personal Loan</option>
+                                    <option value="student-loan">Student Loan</option>
+                                    <option value="medical-debt">Medical Debt</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Outstanding Balance</label>
+                                <input type="number" name="balance" required min="0" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label>Interest Rate (%)</label>
+                                <input type="number" name="interest-rate" required min="0" max="100" step="0.1">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="add-debt" class="btn">+ Add Another Debt</button>
+                </div>
+
+                <div class="form-section">
+                    <h2>Personal Information</h2>
+                    <div class="form-group">
+                        <label>Monthly Income</label>
+                        <input type="number" id="monthly-income" required min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Expenses</label>
+                        <input type="number" id="monthly-expenses" required min="0" step="0.01">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Analyze My Debt</button>
+            </form>
+
+            <div id="debt-analysis-result" class="result-container"></div>
+        </section>
+
+        <section class="debt-education">
+            <h2>Debt Consolidation Strategies</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h3>Balance Transfer</h3>
+                    <p>Transfer high-interest credit card balances to a low-interest card</p>
+                </div>
+                <div class="strategy-card">
+                    <h3>Personal Loan</h3>
+                    <p>Combine multiple debts into a single, lower-interest loan</p>
+                </div>
+                <div class="strategy-card">
+                    <h3>Debt Snowball</h3>
+                    <p>Pay off smallest debts first to build momentum</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="debt-consolidation.js"></script>
+</body>
+</html>

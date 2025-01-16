@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/client-portal.html">Client Portal</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="client-portal-container">
+        <section class="portal-login">
+            <div class="login-card">
+                <h2>Secure Client Login</h2>
+                <form id="client-login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="two-factor">
+                            <input type="checkbox" id="two-factor">
+                            Enable Two-Factor Authentication
+                        </label>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="login-links">
+                        <a href="#" id="forgot-password">Forgot Password?</a>
+                        <a href="#" id="register-account">Create Account</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="dashboard" id="client-dashboard" style="display:none;">
+            <div class="dashboard-header">
+                <h1>Welcome, <span id="client-name"></span></h1>
+                <button id="logout-btn" class="btn">Logout</button>
+            </div>
+
+            <div class="dashboard-sections">
+                <div class="dashboard-card">
+                    <h2>Financial Overview</h2>
+                    <div id="financial-summary"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h2>Document Vault</h2>
+                    <div class="document-management">
+                        <div id="document-list"></div>
+                        <button id="upload-document" class="btn">Upload Document</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h2>Secure Messaging</h2>
+                    <div class="messaging-section">
+                        <div id="message-list"></div>
+                        <form id="send-message-form">
+                            <textarea id="message-content" placeholder="Write your message"></textarea>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h2>Upcoming Appointments</h2>
+                    <div id="appointment-list"></div>
+                    <button id="schedule-appointment" class="btn">Schedule Appointment</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="upload-document-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Upload Document</h2>
+                <form id="document-upload-form">
+                    <div class="form-group">
+                        <label>Document Type</label>
+                        <select id="document-type" required>
+                            <option value="">Select Document Type</option>
+                            <option value="tax-return">Tax Return</option>
+                            <option value="bank-statement">Bank Statement</option>
+                            <option value="investment-statement">Investment Statement</option>
+                            <option value="insurance-document">Insurance Document</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Document File</label>
+                        <input type="file" id="document-file" required>
+                    </div>
+                    <button type="submit" class="btn">Upload</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="client-portal.js"></script>
+</body>
+</html>

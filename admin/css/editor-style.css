@@ -1,0 +1,246 @@
+/* Blog Editor Styles - Continued */
+
+/* SEO Analysis Indicators */
+.improvement.high .indicator {
+    background-color: #F44336;
+}
+
+.improvement.medium .indicator {
+    background-color: #FFC107;
+}
+
+.improvement.low .indicator {
+    background-color: #4CAF50;
+}
+
+.passed .indicator {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Form Controls */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Character Counter */
+.char-count {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.char-count .over-limit {
+    color: #F44336;
+}
+
+/* Featured Image */
+.featured-image-container {
+    text-align: center;
+}
+
+#featuredImagePreview {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Optimization Tips */
+.optimization-tips {
+    background: #F5F5F5;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.tip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.tip-item:last-child {
+    margin-bottom: 0;
+}
+
+.tip-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary-green);
+    color: white;
+    font-size: 0.8rem;
+}
+
+/* TinyMCE Editor Customization */
+.tox-tinymce {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.tox .tox-toolbar__group {
+    border-color: var(--admin-border) !important;
+}
+
+.tox .tox-tbtn {
+    color: var(--primary-blue) !important;
+}
+
+.tox .tox-tbtn:hover {
+    background: rgba(133, 200, 114, 0.1) !important;
+}
+
+/* Media Library Modal */
+.media-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.media-modal-content {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--admin-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.media-modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.media-item {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.media-item:hover {
+    transform: translateY(-2px);
+}
+
+.media-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.media-item-info {
+    padding: 0.75rem;
+    background: white;
+    border: 1px solid var(--admin-border);
+    border-top: none;
+}
+
+.media-item-info .filename {
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+    margin: 0;
+}
+
+.media-item-info .filesize {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Upload Zone */
+.upload-zone {
+    border: 2px dashed var(--admin-border);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.upload-zone.dragover {
+    border-color: var(--primary-green);
+    background: rgba(133, 200, 114, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .editor-container {
+        grid-template-columns: 1fr 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .editor-container {
+        grid-template-columns: 1fr;
+    }
+
+    .editor-sidebar {
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 300px;
+        background: white;
+        z-index: 100;
+        transform: translateX(100%);
+        transition: transform 0.3s;
+    }
+
+    .editor-sidebar.open {
+        transform: translateX(0);
+    }
+}

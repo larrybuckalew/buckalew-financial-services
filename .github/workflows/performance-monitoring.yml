@@ -1,0 +1,63 @@
+name: Performance Monitoring
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  performance:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Install Playwright
+      run: npx playwright install --with-deps
+
+    - name: Setup test environment
+      run: |
+        npm run build
+        npm run start:test &
+        npx wait-on http://localhost:3000
+
+    - name: Run performance tests
+      run: npm run test:performance
+      env:
+        DATABASE_URL: postgresql://test:test@localhost:5432/test_db
+
+    - name: Generate performance report
+      run: node scripts/generate-performance-report.js
+
+    - name: Store performance results
+      uses: actions/upload-artifact@v3
+      with:
+        name: performance-results
+        path: performance-report/
+        retention-days: 30
+
+    - name: Check performance thresholds
+      run: node scripts/check-performance-thresholds.js
+      env:
+        MAX_RESPONSE_TIME: 3000
+        MAX_CPU_USAGE: 70
+        MAX_MEMORY_USAGE: 1024

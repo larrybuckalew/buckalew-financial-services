@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Financial Insights | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/ml-insights.html">AI Insights</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="ml-insights-container">
+        <section class="insights-hero">
+            <h1>AI-Powered Financial Intelligence</h1>
+            <p>Advanced predictive analytics for smarter financial decisions</p>
+        </section>
+
+        <section class="predictive-analysis">
+            <h2>Personalized Financial Forecasting</h2>
+            <div class="analysis-input-grid">
+                <div class="input-section">
+                    <h3>Personal Financial Data</h3>
+                    <form id="ml-prediction-form">
+                        <div class="form-group">
+                            <label>Annual Income</label>
+                            <input type="number" id="annual-income" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Current Savings</label>
+                            <input type="number" id="current-savings" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Investment Portfolio</label>
+                            <select id="portfolio-type" multiple>
+                                <option value="stocks">Stocks</option>
+                                <option value="bonds">Bonds</option>
+                                <option value="real-estate">Real Estate</option>
+                                <option value="crypto">Cryptocurrency</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Risk Tolerance</label>
+                            <select id="risk-tolerance">
+                                <option value="conservative">Conservative</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="aggressive">Aggressive</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Generate AI Insights</button>
+                    </form>
+                </div>
+
+                <div class="insights-results">
+                    <div id="ml-prediction-results">
+                        <h3>AI Financial Forecast</h3>
+                        <div id="prediction-summary"></div>
+                    </div>
+                    <canvas id="prediction-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="ai-feature-highlights">
+            <h2>AI Insight Capabilities</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Market Trend Prediction</h3>
+                    <p>Advanced algorithms analyzing market dynamics</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Personalized Risk Assessment</h3>
+                    <p>Intelligent risk profiling based on your financial data</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Investment Optimization</h3>
+                    <p>AI-driven portfolio recommendations</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="machine-learning-models">
+            <h2>Our Advanced ML Models</h2>
+            <div class="model-grid">
+                <div class="model-card">
+                    <h3>Financial Forecasting Model</h3>
+                    <p>Predictive analytics for long-term financial planning</p>
+                </div>
+                <div class="model-card">
+                    <h3>Risk Prediction Engine</h3>
+                    <p>Comprehensive risk assessment and mitigation strategies</p>
+                </div>
+                <div class="model-card">
+                    <h3>Investment Strategy Optimizer</h3>
+                    <p>Dynamic portfolio allocation recommendations</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="data-privacy">
+            <h2>Data Privacy and Security</h2>
+            <p>Your financial data is processed securely with end-to-end encryption and anonymization.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="ml-insights.js"></script>
+</body>
+</html>

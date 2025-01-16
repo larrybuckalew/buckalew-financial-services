@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.buckalew-financial.com/sitemap.xml
+
+# Directories to exclude
+Disallow: /private/
+Disallow: /admin/
+
+# Specific file exclusions
+Disallow: /contact-form-processor.php
+
+# Crawl-delay to be respectful of server resources
+Crawl-delay: 10

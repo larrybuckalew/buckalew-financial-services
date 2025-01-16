@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Account Integration | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/account-integration.html">Account Sync</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="account-integration-container">
+        <section class="integration-hero">
+            <h1>Unified Financial View</h1>
+            <p>Connect your accounts for a comprehensive financial overview</p>
+        </section>
+
+        <section class="account-connection">
+            <h2>Connect Financial Accounts</h2>
+            <div class="institution-grid">
+                <div class="institution-card" data-institution="bank">
+                    <img src="/images/bank-icon.png" alt="Bank Accounts">
+                    <h3>Bank Accounts</h3>
+                    <button class="btn connect-btn">Connect</button>
+                </div>
+                <div class="institution-card" data-institution="investment">
+                    <img src="/images/investment-icon.png" alt="Investment Accounts">
+                    <h3>Investment Accounts</h3>
+                    <button class="btn connect-btn">Connect</button>
+                </div>
+                <div class="institution-card" data-institution="credit">
+                    <img src="/images/credit-icon.png" alt="Credit Cards">
+                    <h3>Credit Cards</h3>
+                    <button class="btn connect-btn">Connect</button>
+                </div>
+                <div class="institution-card" data-institution="loan">
+                    <img src="/images/loan-icon.png" alt="Loan Accounts">
+                    <h3>Loans</h3>
+                    <button class="btn connect-btn">Connect</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="connection-process">
+            <h2>How Account Connection Works</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <span class="step-number">1</span>
+                    <h3>Select Institution</h3>
+                    <p>Choose the financial institution you want to connect</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">2</span>
+                    <h3>Secure Authentication</h3>
+                    <p>Safely log in using your institution's credentials</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">3</span>
+                    <h3>Review Permissions</h3>
+                    <p>Confirm which account details you want to share</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="connected-accounts">
+            <h2>Connected Accounts</h2>
+            <div id="connected-accounts-list" class="accounts-grid">
+                <p>No accounts connected yet</p>
+            </div>
+        </section>
+
+        <section class="security-assurance">
+            <h2>Your Security is Our Priority</h2>
+            <div class="security-features">
+                <div class="security-feature">
+                    <span class="security-icon">🔒</span>
+                    <h3>Bank-Level Encryption</h3>
+                </div>
+                <div class="security-feature">
+                    <span class="security-icon">🛡️</span>
+                    <h3>Read-Only Access</h3>
+                </div>
+                <div class="security-feature">
+                    <span class="security-icon">🔍</span>
+                    <h3>Regular Security Audits</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="call-to-action">
+            <h2>Take Control of Your Financial Overview</h2>
+            <p>Connect your accounts and get a holistic view of your finances</p>
+            <button id="start-connection" class="btn">Start Account Connection</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="institution-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Connect Financial Institution</h2>
+            <div id="institution-list" class="institution-list">
+                <!-- Dynamically populated list of financial institutions -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="account-integration.js"></script>
+</body>
+</html>

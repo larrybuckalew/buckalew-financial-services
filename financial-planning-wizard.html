@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Planning Wizard | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/financial-planning-wizard.html">Financial Wizard</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="financial-wizard-container">
+        <section class="wizard-hero">
+            <h1>Personalized Financial Planning Wizard</h1>
+            <p>Create a comprehensive financial roadmap tailored to your goals</p>
+        </section>
+
+        <div id="financial-wizard" class="wizard">
+            <div class="wizard-steps">
+                <div class="step active" data-step="1">
+                    <h2>Personal Information</h2>
+                    <div class="step-content">
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" name="age" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Annual Income</label>
+                            <input type="number" name="income" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Marital Status</label>
+                            <select name="marital-status">
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                                <option value="divorced">Divorced</option>
+                                <option value="widowed">Widowed</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" data-step="2">
+                    <h2>Financial Goals</h2>
+                    <div class="step-content">
+                        <div class="goal-selection">
+                            <h3>Select Your Primary Financial Goals</h3>
+                            <div class="goal-options">
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="retirement">
+                                    Retirement Planning
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="home-purchase">
+                                    Home Purchase
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="education">
+                                    Education Funding
+                                </label>
+                                <label class="goal-checkbox">
+                                    <input type="checkbox" name="goals" value="emergency-fund">
+                                    Emergency Fund
+                                </label>
+                            </div>
+                        </div>
+                        <div class="goal-details">
+                            <div class="form-group">
+                                <label>Target Amount for Primary Goal</label>
+                                <input type="number" name="primary-goal-amount" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Target Timeframe (Years)</label>
+                                <input type="number" name="goal-timeframe" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" data-step="3">
+                    <h2>Current Financial Situation</h2>
+                    <div class="step-content">
+                        <div class="form-group">
+                            <label>Current Savings</label>
+                            <input type="number" name="current-savings" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Monthly Expenses</label>
+                            <input type="number" name="monthly-expenses" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Existing Debts</label>
+                            <input type="number" name="existing-debts" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" data-step="4">
+                    <h2>Risk Tolerance</h2>
+                    <div class="step-content">
+                        <div class="risk-assessment">
+                            <h3>Investment Risk Profile</h3>
+                            <div class="risk-options">
+                                <label class="risk-radio">
+                                    <input type="radio" name="risk-tolerance" value="conservative">
+                                    Conservative (Low Risk)
+                                </label>
+                                <label class="risk-radio">
+                                    <input type="radio" name="risk-tolerance" value="moderate">
+                                    Moderate (Balanced)
+                                </label>
+                                <label class="risk-radio">
+                                    <input type="radio" name="risk-tolerance" value="aggressive">
+                                    Aggressive (High Risk)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="risk-details">
+                            <p id="risk-description">Select your risk tolerance to understand potential investment strategies</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" data-step="5">
+                    <h2>Plan Summary</h2>
+                    <div class="step-content" id="plan-summary">
+                        <p>Your personalized financial plan will be generated based on the information you've provided.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wizard-navigation">
+                <button id="prev-step" class="btn" disabled>Previous</button>
+                <button id="next-step" class="btn">Next</button>
+                <button id="submit-plan" class="btn" style="display:none;">Generate Plan</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="financial-planning-wizard.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Settings | Buckalew Financial Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="accessibility-styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="navbar-logo">Buckalew Financial Services</a>
+        <nav class="navbar-links">
+            <a href="/">Home</a>
+            <a href="/accessibility.html">Accessibility</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="accessibility-container">
+        <section class="accessibility-hero">
+            <h1>Inclusive Financial Services</h1>
+            <p>Customizable accessibility options for everyone</p>
+        </section>
+
+        <section class="accessibility-settings">
+            <h2>Personalize Your Experience</h2>
+            <div class="settings-grid">
+                <div class="setting-card">
+                    <h3>Visual Adjustments</h3>
+                    <div class="setting-options">
+                        <div class="setting-option">
+                            <label for="font-size">Font Size</label>
+                            <input type="range" id="font-size" min="12" max="24" value="16">
+                        </div>
+                        <div class="setting-option">
+                            <label for="color-scheme">Color Scheme</label>
+                            <select id="color-scheme">
+                                <option value="default">Default</option>
+                                <option value="high-contrast">High Contrast</option>
+                                <option value="dark-mode">Dark Mode</option>
+                                <option value="grayscale">Grayscale</option>
+                            </select>
+                        </div>
+                        <div class="setting-option">
+                            <label for="line-height">Line Height</label>
+                            <input type="range" id="line-height" min="1" max="2" step="0.1" value="1.5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setting-card">
+                    <h3>Reading Assistance</h3>
+                    <div class="setting-options">
+                        <div class="setting-option">
+                            <label for="text-to-speech">Text-to-Speech</label>
+                            <input type="checkbox" id="text-to-speech">
+                        </div>
+                        <div class="setting-option">
+                            <label for="reading-mask">Reading Guide</label>
+                            <input type="checkbox" id="reading-mask">
+                        </div>
+                        <div class="setting-option">
+                            <label for="dyslexia-font">Dyslexia-Friendly Font</label>
+                            <input type="checkbox" id="dyslexia-font">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setting-card">
+                    <h3>Navigation Assistance</h3>
+                    <div class="setting-options">
+                        <div class="setting-option">
+                            <label for="keyboard-nav">Enhanced Keyboard Navigation</label>
+                            <input type="checkbox" id="keyboard-nav">
+                        </div>
+                        <div class="setting-option">
+                            <label for="focus-highlight">Focus Highlighting</label>
+                            <input type="checkbox" id="focus-highlight">
+                        </div>
+                        <div class="setting-option">
+                            <label for="voice-commands">Voice Navigation</label>
+                            <input type="checkbox" id="voice-commands">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="accessibility-info">
+            <h2>Our Commitment to Accessibility</h2>
+            <div class="commitment-details">
+                <div class="commitment-item">
+                    <h3>WCAG 2.1 Compliant</h3>
+                    <p>We meet Web Content Accessibility Guidelines at Level AA</p>
+                </div>
+                <div class="commitment-item">
+                    <h3>Continuous Improvement</h3>
+                    <p>Regular audits and updates to enhance accessibility</p>
+                </div>
+                <div class="commitment-item">
+                    <h3>Inclusive Design</h3>
+                    <p>Designed with diverse user needs in mind</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="accessibility-support">
+            <h2>Need Additional Support?</h2>
+            <div class="support-options">
+                <div class="support-contact">
+                    <h3>Accessibility Helpline</h3>
+                    <p>Call: (555) 123-4567</p>
+                    <p>Email: accessibility@buckalew-financial.com</p>
+                </div>
+                <div class="support-resources">
+                    <h3>Additional Resources</h3>
+                    <a href="#" class="btn">Accessibility Guide</a>
+                    <a href="#" class="btn">Screen Reader Support</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="call-to-action">
+            <h2>Your Comfort, Our Priority</h2>
+            <p>We're committed to making financial services accessible to everyone</p>
+            <button id="save-accessibility-settings" class="btn">Save Settings</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buckalew Financial Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="accessibility.js"></script>
+</body>
+</html>
